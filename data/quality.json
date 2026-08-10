@@ -25,5 +25,17 @@
   {"id":"wikishia","verified":true,"official":true},
   {"id":"imam-hussain","verified":true,"official":true},
   {"id":"islamic-college","verified":true,"official":true},
-  {"id":"imam-us","verified":true,"official":true}
+  {"id":"imam-us","verified":true,"official":true},
+  {"id":"shiakids-muharram-printables","verified":true,"official":true,"free":true},
+  {"id":"shiakids-ashura-colouring","verified":true,"official":true,"free":true},
+  {"id":"shiakids-arbaeen-comic","verified":true,"official":true,"free":true},
+  {"id":"shiakids-jamal-arbaeen","verified":true,"official":true,"free":true},
+  {"id":"shiakids-muharram-story","verified":true,"official":true,"free":true},
+  {"id":"shiakids-arbaeen-playdough","verified":true,"official":true,"free":true},
+  {"id":"shiakids-muharram-safar-workbook","verified":true,"official":true,"free":true},
+  {"id":"shiakids-ziyara-ashura-children","verified":true,"official":true,"free":true},
+  {"id":"shiakids-salamoji-dua","verified":true,"official":true,"free":true},
+  {"id":"shiakids-ramadan-quran-tracker","verified":true,"official":true,"free":true},
+  {"id":"shiakids-imam-mahdi-activity","verified":true,"official":true,"free":true},
+  {"id":"shiakids-al-mubin-quran","verified":true,"official":true,"free":true}
 ]

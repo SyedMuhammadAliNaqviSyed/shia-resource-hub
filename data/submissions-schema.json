@@ -1,0 +1,18 @@
+{
+  "purpose": "Schema for community resource suggestions before moderation",
+  "fields": {
+    "name": "string",
+    "url": "url",
+    "type": "Website | App | Book | Library | Course | Audio | Video | Download | Other",
+    "languages": "comma-separated string",
+    "description": "string",
+    "status": "pending | approved | rejected"
+  },
+  "review_rules": [
+    "Check that the URL works",
+    "Check for duplicate resources",
+    "Confirm category, language and audience",
+    "Only mark verified or official after evidence is checked",
+    "Do not treat community submission as endorsement"
+  ]
+}

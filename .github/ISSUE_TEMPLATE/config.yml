@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Suggest a resource
+    url: https://github.com/SyedMuhammadAliNaqviSyed/shia-resource-hub/issues/new?template=resource-submission.yml
+    about: Submit a Shia app, website, book, course, library, audio/video or other useful resource.

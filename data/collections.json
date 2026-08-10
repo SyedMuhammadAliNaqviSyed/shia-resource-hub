@@ -1,0 +1,10 @@
+[
+{"id":"ramadan","title":"Ramadan","icon":"🌙","description":"Quran, duas, fasting, worship and family learning resources for Ramadan.","category":"Ramadan","tags":["Ramadan","Quran","Duas","Fasting"]},
+{"id":"muharram","title":"Muharram & Karbala","icon":"🏴","description":"Resources for learning about Imam Hussain, Karbala, Muharram and Ashura.","category":"Muharram","tags":["Muharram","Karbala","Ashura","Imam Hussain"]},
+{"id":"kids","title":"Kids & Families","icon":"👨‍👩‍👧","description":"Age-appropriate books, activities, printables and learning resources for children.","category":"Kids","tags":["Kids","Families","Education"]},
+{"id":"students","title":"Students & Learners","icon":"🎓","description":"Courses, libraries, study tools and structured resources for deeper learning.","category":"Learning","tags":["Students","Courses","Hawza","Learning"]},
+{"id":"research","title":"Research","icon":"🔬","description":"Searchable libraries, reference works, textual databases and scholarly resources.","category":"Research","tags":["Research","Library","Hadith","Books"]},
+{"id":"quran","title":"Quran","icon":"📖","description":"Reading, translations, recitation, tafsir and Quran study resources.","category":"Quran","tags":["Quran","Tafsir","Translation","Recitation"]},
+{"id":"hadith","title":"Hadith","icon":"📜","description":"Hadith collections, searchable texts and resources for studying narrations.","category":"Hadith","tags":["Hadith","Search","Narrations"]},
+{"id":"duas","title":"Duas & Ziyarat","icon":"🤲","description":"Supplications, ziyarat, amaal and devotional resources for everyday use and important occasions.","category":"Duas","tags":["Duas","Ziyarat","Amaal"]}
+]

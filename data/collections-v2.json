@@ -1,7 +1,7 @@
 [
-  {"id":"start-here","title":"Start Here","description":"A simple path for someone discovering Shia resources for the first time.","category":"Learning","tags":["Beginner","Learning","Quran","Hadith"]},
-  {"id":"urdu-south-asia","title":"Urdu & South Asia","description":"Resources especially useful for Urdu-speaking and South Asian users.","category":"Learning","tags":["Urdu","South Asia","Learning"]},
-  {"id":"kids-families","title":"Kids & Families","description":"Age-appropriate books, activities and learning resources for children and parents.","category":"Kids","tags":["Kids","Families","Education"]},
-  {"id":"research","title":"Research Desk","description":"Searchable texts, libraries and reference material for serious study.","category":"Research","tags":["Research","Library","Hadith","Books"]},
-  {"id":"fiqh-practical","title":"Practical Fiqh","description":"Resources for practical questions and learning Islamic jurisprudence.","category":"Learning","tags":["Fiqh","Learning","Practical"]}
+  {"id":"start-here","title":"Start Here","description":"A simple path for someone discovering Shia resources for the first time.","category":"Learning","tags":["Beginner","Learning","Quran","Hadith"],"search":"quran hadith beginner"},
+  {"id":"urdu-south-asia","title":"Urdu & South Asia","description":"Resources especially useful for Urdu-speaking and South Asian users.","category":"Learning","tags":["Urdu","South Asia","Learning"],"search":"Urdu"},
+  {"id":"kids-families","title":"Kids & Families","description":"Age-appropriate books, activities and learning resources for children and parents.","category":"Kids","tags":["Kids","Families","Education"],"search":"kids"},
+  {"id":"research","title":"Research Desk","description":"Searchable texts, libraries and reference material for serious study.","category":"Research","tags":["Research","Library","Hadith","Books"],"search":"research"},
+  {"id":"fiqh-practical","title":"Practical Fiqh","description":"Resources for practical questions and learning Islamic jurisprudence.","category":"Learning","tags":["Fiqh","Learning","Practical"],"search":"fiqh"}
 ]

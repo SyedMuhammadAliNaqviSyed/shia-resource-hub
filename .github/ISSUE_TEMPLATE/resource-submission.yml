@@ -1,0 +1,61 @@
+name: Suggest a Resource
+description: Suggest a Shia app, website, book, library, course, audio or video resource.
+title: "[Resource] "
+labels:
+  - resource-submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping grow the Shia Resource Hub. Submissions are reviewed before being added to the public directory.
+  - type: input
+    id: name
+    attributes:
+      label: Resource name
+      placeholder: e.g. Shia educational website
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Resource URL
+      placeholder: https://example.com
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Resource type
+      options:
+        - Website
+        - App
+        - Book
+        - Library
+        - Course
+        - Audio
+        - Video
+        - Download
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: languages
+    attributes:
+      label: Languages
+      placeholder: English, Urdu, Arabic
+  - type: textarea
+    id: description
+    attributes:
+      label: Why is it useful?
+      placeholder: Briefly describe what people can find here.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission checks
+      options:
+        - label: I checked that this is not obviously a duplicate of an existing Hub resource.
+          required: true
+        - label: I understand that submission does not mean the resource is verified or endorsed.
+          required: true

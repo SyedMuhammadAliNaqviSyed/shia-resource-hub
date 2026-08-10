@@ -1,0 +1,42 @@
+name: Validate resource submissions
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  validate:
+    if: contains(github.event.issue.labels.*.name, 'resource-submission') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate submission fields
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            if (!issue) return;
+            const body = issue.body || '';
+            const urlMatch = body.match(/https?:\/\/[^\s)]+/i);
+            const url = urlMatch ? urlMatch[0] : '';
+            const hasUrl = /^https?:\/\/\S+$/i.test(url);
+            const hasName = /###\s*Resource name[\s\S]*?\n\s*\S+/i.test(body);
+            const hasDescription = /###\s*Description[\s\S]*?\n\s*\S+/i.test(body);
+            const valid = hasUrl && hasName && hasDescription;
+            const labelNames = issue.labels.map(l => typeof l === 'string' ? l : l.name);
+            const add = [];
+            const remove = [];
+            if (valid) { add.push('needs-review'); remove.push('needs-info'); }
+            else { add.push('needs-info'); remove.push('needs-review'); }
+            for (const name of add) if (!labelNames.includes(name)) await github.rest.issues.addLabels({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, labels:[name]});
+            for (const name of remove) if (labelNames.includes(name)) await github.rest.issues.removeLabel({owner: context.repo.owner, repo: context.repo.repo, issue_number: issue.number, name}).catch(()=>{});
+            const marker='<!-- resource-validation -->';
+            const note=valid ? `${marker}\n\n### Automated check\n✅ Required fields detected. This submission is **not yet verified**; a maintainer should review the URL, quality, duplication and relevance before approval.` : `${marker}\n\n### Automated check\n⚠️ Required information appears to be missing. Please provide a resource name, a valid HTTP(S) URL, and a description. This submission is marked **needs-info** until corrected.`;
+            const comments = await github.rest.issues.listComments({owner:context.repo.owner,repo:context.repo.repo,issue_number:issue.number,per_page:100});
+            const previous=comments.data.find(c => c.body && c.body.includes(marker));
+            if(previous) await github.rest.issues.updateComment({owner:context.repo.owner,repo:context.repo.repo,comment_id:previous.id,body:note});
+            else await github.rest.issues.createComment({owner:context.repo.owner,repo:context.repo.repo,issue_number:issue.number,body:note});

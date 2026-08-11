@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "purpose": "Age-aware framework for future resource matching and parent guidance.",
+  "stages": [
+    {
+      "id":"early_childhood",
+      "label":"Early childhood",
+      "ages":"3-5",
+      "adult_support":"high",
+      "primary_focus":["safe exposure","stories","simple concepts","habits","parent-guided activities"],
+      "preferred_modes":["watch","listen","activity","read"]
+    },
+    {
+      "id":"guided_childhood",
+      "label":"Guided childhood",
+      "ages":"6-8",
+      "adult_support":"high",
+      "primary_focus":["foundations","curiosity","simple practice","good habits","guided discovery"],
+      "preferred_modes":["watch","activity","quiz","read","listen"]
+    },
+    {
+      "id":"independent_childhood",
+      "label":"Independent childhood",
+      "ages":"9-12",
+      "adult_support":"moderate",
+      "primary_focus":["questions","identity","skills","history","self-directed discovery"],
+      "preferred_modes":["watch","read","quiz","discuss","practice"]
+    },
+    {
+      "id":"teen_youth",
+      "label":"Teen and youth",
+      "ages":"13-17",
+      "adult_support":"guidance",
+      "primary_focus":["identity","questions","critical thinking","modern life","habits","independent learning"],
+      "preferred_modes":["watch","listen","read","discuss","reflect","practice"]
+    },
+    {
+      "id":"young_adult",
+      "label":"Young adult",
+      "ages":"18+",
+      "adult_support":"optional",
+      "primary_focus":["self-directed learning","deeper study","life application","research","community contribution"],
+      "preferred_modes":["read","listen","watch","research","discuss","share"]
+    }
+  ],
+  "notes": [
+    "Age bands are guidance, not rigid developmental diagnoses.",
+    "The framework starts at approximately age 3 because meaningful digital exposure can begin before school age.",
+    "Parents remain important throughout, while the intended level of direct control decreases as independence grows.",
+    "Resources should not be labeled age-appropriate solely by automation; age metadata is a matching aid, not a guarantee."
+  ]
+}

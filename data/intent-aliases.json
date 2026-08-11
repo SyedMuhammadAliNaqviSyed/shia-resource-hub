@@ -1,0 +1,19 @@
+{
+  "quran": ["quran", "quran learning", "learn quran", "قرآن", "quran parhna", "quran seekhna"],
+  "hadith": ["hadith", "ahadith", "hadees", "حدیث", "احادیث"],
+  "duas": ["dua", "duas", "duaen", "دعاء", "دعا", "duain"],
+  "kids": ["kid", "kids", "child", "children", "bachay", "bacha", "بچے", "بچہ"],
+  "parents": ["parent", "parents", "walidain", "waliden", "والدین", "parenting", "tarbiyat"],
+  "youth": ["youth", "teen", "teenager", "young", "jawaan", "jawan", "نوجوان"],
+  "learning": ["learn", "learning", "study", "education", "ilm", "علم", "seekhna", "سیکھنا"],
+  "history": ["history", "tareekh", "tarikh", "تاریخ", "karbala", "karbala history", "کربلا"],
+  "prayer": ["prayer", "namaz", "salah", "نماز", "wuzu", "wudhu", "وضو"],
+  "books": ["book", "books", "kitab", "kitabain", "کتاب", "کتابیں"],
+  "audio": ["audio", "listen", "sunna", "sunna hai", "سننا"],
+  "video": ["video", "videos", "watch", "dekhna", "دیکھنا"],
+  "activities": ["activity", "activities", "task", "tasks", "game", "games", "activity karna"],
+  "free": ["free", "muft", "مفت"],
+  "urdu": ["urdu", "اردو"],
+  "persian": ["persian", "farsi", "فارسی"],
+  "arabic": ["arabic", "arabi", "عربی"]
+}

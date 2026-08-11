@@ -54,12 +54,9 @@ The flow intentionally starts with a small number of structured choices rather t
 
 Homepage integration is complete: `Parent support` is in primary navigation and a dedicated parent-support entry is shown alongside need-based discovery.
 
-### Parent-aware results
+Resources-page context is complete: parent age/need/format signals are preserved and shown as targeted-result context.
 
-- `parent-support.html` passes `age` and a need query into the resource directory.
-- `js/search.js` now accepts both `search` and `q` URL parameters.
-- Resource directory can interpret age from the parent flow and has an age filter.
-- Resource directory shows a parent-support context message when age/need/format context is active, explaining that the user is seeing targeted results and should start small.
+Resource-card fit explanations are now implemented: matching cards can show concise reasons such as age suitability, purpose/goal/category match, selected format, free/verified/official signals.
 
 ## Current resource data
 
@@ -98,7 +95,7 @@ Do not create a duplicate resource database without a strong reason. Prefer a no
 - [x] Pass structured signals into resource discovery URL
 - [x] Link parent support prominently from homepage/navigation
 - [x] Interpret parent age/need context on resources page
-- [ ] Improve each result card with a concise “why this fits” explanation
+- [x] Concise “why this fits” explanations on matching result cards
 - [ ] Add Urdu language preference, especially for Pakistan/India audience
 - [ ] Add manageable time/effort preference
 - [ ] Add small-start recommendations rather than broad result lists
@@ -139,7 +136,7 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 
 ## Immediate next task
 
-Continue Phase B by improving each result card with a concise explanation of **why it fits the parent's selected age/need/format**, then add Urdu language preference and manageable time/effort preference. After that, implement small-start recommendations and optional next steps.
+Continue Phase B by adding **Urdu language preference** and **manageable time/effort preference** to `parent-support.html`, then use those signals in resource ranking/filtering. After that, implement small-start recommendations and an optional next step.
 
 ## Continuation rule
 

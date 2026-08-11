@@ -8,14 +8,16 @@ Good resources already exist across the internet, but they are often difficult t
 
 ## Current features
 
-- Responsive homepage
+- Responsive homepage with accessible search and navigation
 - Searchable resource directory
 - Dynamic category, language, format, and quality filters
-- Name, newest, verified, free, and featured sorting
+- Search relevance scoring plus name, newest, verified, and free sorting
+- Shareable URL-based filters and searches
 - Resource detail pages
 - Resource metadata: type, languages, categories, audience, tags, dates, and trust metadata
-- Featured resources
-- Start Here paths for new visitors
+- Featured and recently added resources
+- Curated collections and Start Here paths
+- Graceful handling of missing resource datasets
 - Community-first mission page
 - Static hosting friendly architecture
 
@@ -28,6 +30,14 @@ Trust flags such as `verified`, `official`, and `free` are editorial metadata an
 ## Adding resources
 
 New resources should follow the schema and curation rules documented in `data/schema.md`. Use stable IDs, canonical URLs, factual descriptions, useful categories/tags, and accurate language/audience metadata. Avoid duplicates and do not mark a resource as verified or official without checking the destination.
+
+## Accessibility
+
+The interface includes accessible labels for search and navigation controls, responsive mobile navigation, live regions for dynamically loaded content, and state information for interactive filters and menus. Accessibility should continue to be checked as new features are added.
+
+## Development and QA
+
+The project is plain HTML, CSS and JavaScript and requires no backend for the current version. Before publishing changes, check the affected page at desktop and mobile widths, verify that filters/search URLs behave correctly, and avoid assigning trust metadata without checking the specific destination.
 
 ## Tech
 

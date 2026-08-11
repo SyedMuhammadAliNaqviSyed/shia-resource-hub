@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "purpose": "Shared vocabulary for matching people and learning goals to resources without requiring users to know the site's category structure.",
+  "intents": [
+    {"id":"learn_quran","label":"Learn the Quran"},
+    {"id":"quran_recitation","label":"Quran recitation and practice"},
+    {"id":"hadith","label":"Hadith and teachings"},
+    {"id":"ahlulbayt","label":"Learn about Ahl al-Bayt"},
+    {"id":"islamic_history","label":"Islamic and Shia history"},
+    {"id":"karbala","label":"Karbala and Imam Hussain"},
+    {"id":"beliefs","label":"Beliefs and questions"},
+    {"id":"fiqh_practice","label":"Everyday religious practice"},
+    {"id":"duas_ziyarat","label":"Duas, ziyarat and devotional practice"},
+    {"id":"character_habits","label":"Character and good habits"},
+    {"id":"parenting","label":"Parenting and tarbiyah"},
+    {"id":"kids_learning","label":"Learning for young children"},
+    {"id":"youth_learning","label":"Learning for teenagers and youth"},
+    {"id":"questions","label":"Find answers to a question"},
+    {"id":"research","label":"Research and deeper study"},
+    {"id":"productive_entertainment","label":"Useful and values-aligned entertainment"},
+    {"id":"urdu_learning","label":"Urdu learning resources"},
+    {"id":"arabic_learning","label":"Arabic learning"},
+    {"id":"persian_learning","label":"Persian learning"},
+    {"id":"community","label":"Community and local support"}
+  ],
+  "engagement_modes": [
+    "watch",
+    "listen",
+    "read",
+    "practice",
+    "discuss",
+    "reflect",
+    "memorize",
+    "activity",
+    "quiz",
+    "share"
+  ],
+  "notes": [
+    "Intents describe what the person is trying to accomplish, not merely what a resource is about.",
+    "Multiple intents may apply to one resource.",
+    "This vocabulary is designed for future search, parent support, scholar sharing and learning paths.",
+    "It does not itself make religious authority or authenticity judgments."
+  ]
+}

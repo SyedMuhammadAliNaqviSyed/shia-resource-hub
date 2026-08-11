@@ -52,6 +52,8 @@ Supported format preferences: any, video, audio, book/reading.
 
 The flow intentionally starts with a small number of structured choices rather than making parents write complicated searches.
 
+Homepage integration is now complete: `Parent support` is in primary navigation and a dedicated parent-support entry is shown alongside need-based discovery.
+
 ## Current resource data
 
 Existing resource data is distributed across multiple JSON sources. `js/search.js` loads:
@@ -87,12 +89,12 @@ Do not create a duplicate resource database without a strong reason. Prefer a no
 - [x] Parent goal selection
 - [x] Format preference
 - [x] Pass structured signals into resource discovery URL
+- [x] Link parent support prominently from homepage/navigation
 - [ ] Improve results page to explain why each result fits
 - [ ] Add language preference, especially Urdu
 - [ ] Add manageable time/effort preference
 - [ ] Add small-start recommendations rather than broad result lists
 - [ ] Add optional deeper/next step
-- [ ] Link parent support prominently from homepage/navigation
 
 Target flow: **Child age → parent's goal/need → language/format/time → small high-confidence set → why suitable → what parent does → optional next step**.
 
@@ -129,7 +131,7 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 
 ## Immediate next task
 
-Continue Phase B by integrating `parent-support.html` into the main homepage/navigation, then improve `resources.html` so age/goal/format query parameters are interpreted into visible explanations and a small high-confidence set of results. After that, add Urdu language preference and manageable time/effort preference.
+Continue Phase B by improving `resources.html` so the age/goal/format query parameters from `parent-support.html` are interpreted into visible explanations and a small high-confidence set of results. After that, add Urdu language preference and manageable time/effort preference.
 
 ## Continuation rule
 

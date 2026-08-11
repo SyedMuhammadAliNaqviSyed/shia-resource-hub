@@ -1,156 +1,72 @@
 # Shia Resource Hub — Project Status & Continuation Guide
 
-> This file is the handoff point for continuing the project in a future conversation. Read it before making major changes.
+> Handoff point for continuing the project in a future conversation. Read this before major changes.
 
 ## Vision
 
 Build a practical, modern Shia resource/discovery platform that reduces the gap between useful Islamic knowledge/resources and today's internet-native generation.
 
-The core problem is **not simply lack of content**. Useful material is scattered, parents often do not know what to give a child, many children/youth consume whatever appears next on social platforms, and many ulema have useful guidance but lack a practical digital bridge to today's generation.
+The core problem is not simply lack of content. Useful material is scattered, parents often do not know what to give a child, many children/youth consume whatever appears next on social platforms, and many ulema have useful guidance but lack a practical digital bridge to today's generation.
 
-The platform should help:
-
-- parents find appropriate resources for children and youth;
-- children/youth discover useful, engaging material without needing perfect search terms;
-- ulema/teachers identify and share suitable resources for a particular need;
-- users know what a resource is useful for and what to do next;
-- useful existing material become discoverable rather than duplicating content.
+The platform should help parents find appropriate resources; children/youth discover useful material without perfect search terms; ulema/teachers identify and share suitable resources; users understand what a resource is useful for and what to do next; and useful existing material become discoverable without duplicating content.
 
 ## Product principle
 
 **Need → relevant resources → practical next step → learning path**
 
-Do not turn the project into a huge content dump. A smaller set of high-value, discoverable resources is better than thousands of poorly classified links.
+Do not become a huge content dump. A smaller set of high-value, discoverable resources is better than thousands of poorly classified links.
 
-## Audience model
+## Audience and age model
 
-Age must be treated explicitly because children may have access to phones/internet as early as 3–4 years old.
+Children may have access to phones/internet as early as 3–4 years old. Current age bands: 3–5, 6–8, 9–12, 13–17, 18+.
 
-Current age bands:
-
-- 3–5
-- 6–8
-- 9–12
-- 13–17
-- 18+
-
-The platform should support at least these groups:
-
-- parents/families
-- children
-- youth/students
-- ulema/teachers/mentors
-- general learners/researchers
-
-Parents are an important central point because they connect children, their own learning, and ulema/teachers.
+Core audiences: parents/families, children, youth/students, ulema/teachers/mentors, and general learners/researchers. Parents are a central point because they connect children, their own learning, and ulema/teachers.
 
 ## Religious/editorial direction
 
-The project owner is a Shia Ithna Ashari user and follows Ayatollah Sayyid Ali Khamenei. The platform's content priority is therefore Shia-compatible material, while the owner does not want the platform branded unnecessarily around his personal identity or used to exclude a correct/helpful resource merely because of branding. Material that conflicts with the project's established religious/editorial direction should not be promoted.
+The owner is Shia Ithna Ashari and follows Ayatollah Sayyid Ali Khamenei. Content priority is therefore Shia-compatible material, without unnecessarily branding the platform around the owner's personal identity. Material that conflicts with the project's established religious/editorial direction should not be promoted.
 
-AI/recommendation logic must **not be treated as a religious authority**. Religious correctness should follow the project's editorial policy and appropriate scholarly sources.
+AI/recommendation logic is not a religious authority. Religious correctness follows the project's editorial policy and appropriate scholarly sources.
 
-## What has been implemented
+## Implemented
 
-### 1. Learning-path architecture
+### Foundation / discovery
 
-Created `data/learning-paths.md`.
+- Learning-path architecture in `data/learning-paths.md`.
+- `js/search.js` derives `purpose`, `needs`, `goals`, and `ageRange` from existing resource metadata.
+- Multi-field relevance uses name, description, type, categories, languages, tags, audience, derived intelligence and intent aliases.
+- Need-based discovery page: `needs.html`.
+- Homepage has `What do you need?` navigation and `Start with what you need` entry point.
+- Resources page links back to need discovery and supports age-aware discovery.
+- Resource detail direction includes usefulness, audience, purpose, age suitability and related/next resources.
 
-It defines a learning path as a short sequence of existing resource IDs, with:
+### Parent Support MVP
 
-- goal
-- audience
-- age range
-- level
-- estimated time
-- required/optional steps
-- engagement type
-- language
-- status
+Created `parent-support.html`.
 
-Design rule: reuse resources; do not duplicate content.
+Current flow: **Child age → parent's immediate goal → preferred format → show suitable resources**.
 
-### 2. Intelligent resource metadata
+Supported goals: tarbiyat & good habits; Quran learning; namaz/duas/practices; stories & Islamic history; useful screen time; general youth learning.
 
-`js/search.js` derives useful metadata from existing resource fields instead of requiring manual tagging of every resource.
+Supported format preferences: any, video, audio, book/reading.
 
-Derived fields include:
-
-- `purpose`
-- `needs`
-- `goals`
-- `ageRange`
-
-Signals include Quran, Hadith, dua/ziyarat, prayer, children, youth, parents, history, books/research, structured learning, video and audio.
-
-### 3. Intelligent search/relevance
-
-`js/search.js` uses multiple resource fields and intent aliases for relevance:
-
-- name
-- description
-- type
-- categories
-- languages
-- tags
-- audience
-- purpose
-- needs
-- goals
-- age range
-
-It supports multi-word intent matching and relevance scoring rather than relying only on exact phrase matches.
-
-### 4. Need-based discovery page
-
-Created `needs.html` with user-friendly entry points such as:
-
-- Help a child learn
-- Learn the Quran
-- Learn a practice
-- Learn as a young person
-- Understand history
-- Find a reference
-- Find something to watch or listen to
-- Find a book
-- Find an app or tool
-
-These routes feed into the existing resource discovery/search system.
-
-### 5. Homepage integration
-
-`index.html` now links users directly into need-based discovery through:
-
-- navigation: `What do you need?`
-- homepage section: `Start with what you need.`
-
-### 6. Resources page integration
-
-`resources.html` links back to need-based discovery and preserves search/filter state through URL parameters.
-
-### 7. Age-aware discovery
-
-Derived metadata supports the current age bands and does not collapse a 3–4 year old child into the same generic experience as a teenager.
-
-### 8. Resource detail direction
-
-Resource detail pages have been extended/directed toward showing practical usefulness, audience, inferred purpose, age suitability and related/next resources rather than only acting as a link directory.
+The flow intentionally starts with a small number of structured choices rather than making parents write complicated searches.
 
 ## Current resource data
 
-Existing resource data is distributed across multiple JSON sources. `js/search.js` currently loads:
+Existing resource data is distributed across multiple JSON sources. `js/search.js` loads:
 
 - `data/resources.json`
 - `data/additional-resources.json`
 - `data/research-resources.json`
 - `data/urdu-south-asia-resources.json`
 - `data/expansion-batch-01.json`
-- `data/quality.json` for quality overlays
-- `data/intent-aliases.json` for search intent aliases
+- `data/quality.json`
+- `data/intent-aliases.json`
 
-Do not create a second duplicate resource database without a strong reason. Prefer a normalized runtime model over duplicating content.
+Do not create a duplicate resource database without a strong reason. Prefer a normalized runtime model.
 
-## Remaining roadmap
+## Roadmap
 
 ### Phase A — Foundation / Discovery
 
@@ -161,140 +77,60 @@ Do not create a second duplicate resource database without a strong reason. Pref
 - [x] Need-based discovery page
 - [x] Homepage need entry point
 - [x] Age-aware metadata
-- [ ] Verify all current frontend routes and data sources end-to-end
+- [ ] Verify all current frontend routes/data sources end-to-end
 - [ ] Add automated/visible tests for search and need flows
 
 ### Phase B — Parent support
 
-Goal: make the parent the practical bridge between child, platform and ulema.
+- [x] Parent Support MVP page
+- [x] Child age selection
+- [x] Parent goal selection
+- [x] Format preference
+- [x] Pass structured signals into resource discovery URL
+- [ ] Improve results page to explain why each result fits
+- [ ] Add language preference, especially Urdu
+- [ ] Add manageable time/effort preference
+- [ ] Add small-start recommendations rather than broad result lists
+- [ ] Add optional deeper/next step
+- [ ] Link parent support prominently from homepage/navigation
 
-Planned flow:
-
-`Child age → parent's goal/need → suitable resources → manageable activity/learning suggestion → optional deeper material`
-
-Important: avoid overwhelming parents. Give a small number of high-confidence choices first.
-
-Potential parent needs:
-
-- child tarbiyat
-- Quran learning
-- prayer/duas
-- stories/history
-- age-appropriate videos/books
-- productive screen time
-- questions the parent cannot answer
-- finding material recommended by an alim/teacher
+Target flow: **Child age → parent's goal/need → language/format/time → small high-confidence set → why suitable → what parent does → optional next step**.
 
 ### Phase C — Ulema/teacher support
 
-Goal: let an alim/teacher effectively say:
-
-> “For this child/youth/person, do this task and use these resources.”
-
-Planned capabilities:
-
-- select audience/age
-- select goal/topic
-- choose a small resource set
-- optionally form a learning path/task
-- share a simple link or recommendation
-- eventually allow reusable recommendation sets
-
-Do not require ulema to manage a complicated CMS initially.
+Let an alim/teacher say: “For this child/youth/person, do this task and use these resources.” Planned: audience/age selection, topic/goal, small resource set, optional learning path/task, simple shareable link, reusable recommendation sets. Do not require a complicated CMS initially.
 
 ### Phase D — Youth engagement
 
-Goal: make useful learning compatible with modern digital behavior rather than making it feel like a boring old directory.
-
-Planned concepts:
-
-- short tasks
-- watch/listen/read/practice combinations
-- progress through a path
-- small achievable goals
-- reflection/discussion prompts
-- useful digital skills/resources alongside religious learning where appropriate
-- modern presentation without compromising religious/editorial direction
-
-The goal is not to compete with every entertainment platform. The goal is to make the **next useful thing easy to find and easy to start**.
+Short tasks, watch/listen/read/practice combinations, progress through a path, achievable goals, reflection/discussion prompts, useful modern digital skills/resources where appropriate, and modern presentation without compromising religious/editorial direction.
 
 ### Phase E — Learning paths
 
-Turn existing resources into curated short journeys.
-
-Examples of structure (not final content):
-
-`topic → short video → short reading → practice/reflection → optional deeper book`
-
-Learning paths should be:
-
-- age-aware
-- language-aware
-- level-aware
-- time-aware
-- short by default
-- composed from existing resources
+Turn existing resources into short journeys such as `topic → short video → short reading → practice/reflection → optional deeper book`. Paths should be age-, language-, level-, and time-aware; short by default; and composed from existing resources.
 
 ### Phase F — Recommendation intelligence
 
-Eventually support natural-language needs such as:
-
-> “Mera 7 saal ka beta Quran ki basic understanding start kare; Urdu mein engaging cheez chahiye.”
-
-The system should translate this into structured signals and rank existing resources.
-
-Important: recommendations should be explainable:
-
-- why this resource was selected
-- age fit
-- format
-- language
-- purpose
-- quality/verification signals
+Support natural-language needs such as: “Mera 7 saal ka beta Quran ki basic understanding start kare; Urdu mein engaging cheez chahiye.” Translate the request into structured signals and rank existing resources. Recommendations should explain why a resource was selected, age fit, format, language, purpose, and quality/verification signals.
 
 ### Phase G — Ulema + parents + community network
 
-Longer-term platform layer:
-
-- recommendation sets from ulema
-- parent feedback/usefulness signals
-- curated collections
-- community resource submissions
-- quality/verification workflow
-- analytics on what users actually find/useful
+Longer-term: ulema recommendation sets, parent usefulness feedback, curated collections, community submissions, quality/verification workflow, and analytics on what users actually find/useful.
 
 ## What NOT to do
 
-- Do not keep adding documentation instead of implementing user-facing behavior.
-- Do not manually review/tag hundreds of resources as the default strategy.
+- Do not keep adding documentation instead of user-facing implementation.
+- Do not manually tag hundreds of resources by default.
 - Do not duplicate resource databases unnecessarily.
-- Do not make the platform a generic “everything Islamic” dump.
-- Do not assume children start using devices only at age 10+.
-- Do not force parents to supervise every second of a child's screen use; provide practical support for imperfect real-life situations.
-- Do not make recommendations solely because an item is popular; relevance, quality, suitability and religious/editorial fit matter.
+- Do not make the platform a generic everything-Islamic dump.
+- Do not assume children start device use only at age 10+.
+- Do not require parents to supervise every second; support imperfect real-life situations.
+- Do not rank only by popularity; consider relevance, quality, suitability and editorial fit.
 - Do not make AI the religious authority.
 
 ## Immediate next task
 
-The next implementation priority is **Phase B: Parent Support MVP**.
-
-Build a small parent flow that asks for:
-
-1. child's age band;
-2. parent's immediate goal/need;
-3. preferred format/language where useful;
-
-then returns a small set of relevant resources with:
-
-- why it is suitable;
-- estimated effort/time where available;
-- what the parent can do with it;
-- an optional next step.
-
-Keep it lightweight and reuse the existing search/relevance engine.
+Continue Phase B by integrating `parent-support.html` into the main homepage/navigation, then improve `resources.html` so age/goal/format query parameters are interpreted into visible explanations and a small high-confidence set of results. After that, add Urdu language preference and manageable time/effort preference.
 
 ## Continuation rule
 
-When continuing this project in a new conversation, read this file first, inspect the current repository state, verify which checklist items are actually implemented, and continue from **Immediate next task** rather than asking the user to repeat the whole project history.
-
-Update this file whenever a major phase, architecture decision, or user-facing capability is completed.
+When continuing in a new conversation, read this file first, inspect the current repository state, verify checklist items, and continue from **Immediate next task** rather than asking the user to repeat the project history.

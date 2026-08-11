@@ -52,7 +52,14 @@ Supported format preferences: any, video, audio, book/reading.
 
 The flow intentionally starts with a small number of structured choices rather than making parents write complicated searches.
 
-Homepage integration is now complete: `Parent support` is in primary navigation and a dedicated parent-support entry is shown alongside need-based discovery.
+Homepage integration is complete: `Parent support` is in primary navigation and a dedicated parent-support entry is shown alongside need-based discovery.
+
+### Parent-aware results
+
+- `parent-support.html` passes `age` and a need query into the resource directory.
+- `js/search.js` now accepts both `search` and `q` URL parameters.
+- Resource directory can interpret age from the parent flow and has an age filter.
+- Resource directory shows a parent-support context message when age/need/format context is active, explaining that the user is seeing targeted results and should start small.
 
 ## Current resource data
 
@@ -90,8 +97,9 @@ Do not create a duplicate resource database without a strong reason. Prefer a no
 - [x] Format preference
 - [x] Pass structured signals into resource discovery URL
 - [x] Link parent support prominently from homepage/navigation
-- [ ] Improve results page to explain why each result fits
-- [ ] Add language preference, especially Urdu
+- [x] Interpret parent age/need context on resources page
+- [ ] Improve each result card with a concise “why this fits” explanation
+- [ ] Add Urdu language preference, especially for Pakistan/India audience
 - [ ] Add manageable time/effort preference
 - [ ] Add small-start recommendations rather than broad result lists
 - [ ] Add optional deeper/next step
@@ -131,7 +139,7 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 
 ## Immediate next task
 
-Continue Phase B by improving `resources.html` so the age/goal/format query parameters from `parent-support.html` are interpreted into visible explanations and a small high-confidence set of results. After that, add Urdu language preference and manageable time/effort preference.
+Continue Phase B by improving each result card with a concise explanation of **why it fits the parent's selected age/need/format**, then add Urdu language preference and manageable time/effort preference. After that, implement small-start recommendations and optional next steps.
 
 ## Continuation rule
 

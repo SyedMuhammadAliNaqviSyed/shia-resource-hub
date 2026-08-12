@@ -44,19 +44,34 @@ AI/recommendation logic is not a religious authority. Religious correctness foll
 
 Created `parent-support.html`.
 
-Current flow: **Child age → parent's immediate goal → preferred format → show suitable resources**.
+Current flow: **Child age → parent's immediate goal → language → preferred format → manageable time → show suitable resources**.
 
 Supported goals: tarbiyat & good habits; Quran learning; namaz/duas/practices; stories & Islamic history; useful screen time; general youth learning.
 
 Supported format preferences: any, video, audio, book/reading.
 
+Supported language preferences: any, Urdu, English, Arabic.
+
+Supported time preferences: flexible, 5–10 min, 10–20 min, 20+ min.
+
 The flow intentionally starts with a small number of structured choices rather than making parents write complicated searches.
 
 Homepage integration is complete: `Parent support` is in primary navigation and a dedicated parent-support entry is shown alongside need-based discovery.
 
-Resources-page context is complete: parent age/need/format signals are preserved and shown as targeted-result context.
+Resources-page context is complete: parent age/need/language/format/time signals are preserved and shown as targeted-result context.
 
-Resource-card fit explanations are now implemented: matching cards can show concise reasons such as age suitability, purpose/goal/category match, selected format, free/verified/official signals.
+Resource ranking now uses age, language, format, and available time as contextual signals.
+
+Resource-card fit explanations are implemented: matching cards can show concise reasons such as age suitability, purpose/goal/category match, selected format, time fit, free/verified/official signals.
+
+Small-start recommendations are implemented through `js/parent-small-start.js`: parent-support result flows show the first 3 high-priority options instead of overwhelming families with a long list.
+
+### Kids / video work (kept scoped)
+
+- Kids/family video page and curated video data are implemented.
+- Shia Kids Channels collection exists with age, language, focus, source-level and parent-note metadata.
+- Urdu Kids — Start Here exists with age filtering and parent-preview guidance.
+- Video work is considered a focused supporting area, not a reason to keep expanding the project indefinitely.
 
 ## Current resource data
 
@@ -92,13 +107,14 @@ Do not create a duplicate resource database without a strong reason. Prefer a no
 - [x] Child age selection
 - [x] Parent goal selection
 - [x] Format preference
+- [x] Urdu language preference
+- [x] Manageable time/effort preference
 - [x] Pass structured signals into resource discovery URL
 - [x] Link parent support prominently from homepage/navigation
-- [x] Interpret parent age/need context on resources page
+- [x] Interpret parent age/need/language/format/time context on resources page
+- [x] Context-aware resource ranking
 - [x] Concise “why this fits” explanations on matching result cards
-- [ ] Add Urdu language preference, especially for Pakistan/India audience
-- [ ] Add manageable time/effort preference
-- [ ] Add small-start recommendations rather than broad result lists
+- [x] Small-start recommendations rather than broad result lists
 - [ ] Add optional deeper/next step
 
 Target flow: **Child age → parent's goal/need → language/format/time → small high-confidence set → why suitable → what parent does → optional next step**.
@@ -133,10 +149,11 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 - Do not require parents to supervise every second; support imperfect real-life situations.
 - Do not rank only by popularity; consider relevance, quality, suitability and editorial fit.
 - Do not make AI the religious authority.
+- Do not expand the video section with optional polish while the core roadmap has pending work.
 
 ## Immediate next task
 
-Continue Phase B by adding **Urdu language preference** and **manageable time/effort preference** to `parent-support.html`, then use those signals in resource ranking/filtering. After that, implement small-start recommendations and an optional next step.
+Continue Phase B with **optional deeper/next-step guidance** after the small-start results: give the parent a clear practical action and an optional deeper resource/path without turning the result page into a large content list. Then move to Phase A QA (frontend routes/data sources) before starting Phase C.
 
 ## Continuation rule
 

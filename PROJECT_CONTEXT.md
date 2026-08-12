@@ -55,15 +55,15 @@ Structured metadata should include type/format, language, age suitability, topic
 ## 7. Video / kids priority
 Video is currently a major priority because children/youth naturally consume it heavily.
 
-The prototype now has a kids-video direction including:
-- age-oriented video discovery
-- dedicated kids video resources dataset
-- direct Shia kids channels page/direction
-- channel-level and individual-resource architecture
-- playlist/series-level support direction
-- sources such as Shia Kids TV, Hujja Kids, Faraj Kids and other child-focused programming where appropriate
+Implemented/active kids-video direction:
+- `videos.html` is the existing family/kids video discovery page.
+- `kids-videos.html` is a dedicated age/topic kids-video discovery prototype.
+- Homepage now surfaces Kids Videos prominently with age 3–5, 6–8, 9–12 and Urdu entry points.
+- Video architecture is intended to preserve `channel → playlist/series → individual video` levels.
+- Channel-level quality must not imply every upload is suitable.
+- Video cards should show age/language/source context and parent notes where available.
 
-Important product distinction: a good channel does **not** mean every video on that channel is automatically suitable. Architecture should preserve `channel → playlist/series → individual video` levels and transparent quality/source signals.
+Kids content should prioritize short, clear, engaging and age-appropriate material while avoiding an endless-feed/autoplay model.
 
 ## 8. Current repository
 Repository: `SyedMuhammadAliNaqviSyed/shia-resource-hub`
@@ -71,6 +71,8 @@ Repository: `SyedMuhammadAliNaqviSyed/shia-resource-hub`
 Key pages/files include:
 - `index.html`
 - `resources.html`
+- `videos.html`
+- `kids-videos.html`
 - `needs.html`
 - `parent-support.html`
 - `parent-plan.html`
@@ -81,6 +83,7 @@ Key pages/files include:
 - `about.html`
 - `js/app.js`
 - `js/search.js`
+- `js/video-section.js`
 - `js/ulema-support.js`
 - `js/learner.js`
 - `js/plan-feedback.js`
@@ -92,6 +95,8 @@ Key pages/files include:
 ### Homepage
 Search, quick tags, stats, categories, needs entry, parent support, ulema support, featured/recent resources, collections and suggestion link.
 
+Homepage now also prominently surfaces Kids Videos by age and Urdu, with direct links to the video library.
+
 ### Parent support
 Contextual fields around age, need, language, format and available time. Intended ranking emphasizes contextual fit.
 
@@ -102,7 +107,7 @@ Age, need, format and optional task; shortlist; selected resources; plan fields 
 Dedicated learner page with clear steps, resource opening, small task, mark-complete interaction, progress and lightweight local storage. It can consume selected plan/resource IDs through the shareable flow.
 
 ### Feedback
-Parent/plan feedback captures whether a step worked, needed help, was too much/long, or lost interest. The latest implementation now stores a `resourceId` alongside feedback so signals can eventually be tied to specific resources.
+Parent/plan feedback captures whether a step worked, needed help, was too much/long, or lost interest. Feedback now stores `resourceId` alongside the plan feedback.
 
 ### Recommendation feedback scoring
 `js/recommendation-feedback.js` provides a base scoring utility. Current conceptual adjustments are:
@@ -112,6 +117,21 @@ Parent/plan feedback captures whether a step worked, needed help, was too much/l
 - lost interest: -3
 
 This is only a prototype signal, not a final statistical ranking model. It should eventually be combined with age/need/language/format/source-quality and enough sample size before materially changing rankings.
+
+### Source quality
+`data/source-quality-guide.json` defines transparent levels:
+- Official source
+- Recognized educational source
+- Scholar-linked
+- Community source
+- Source not yet assessed
+
+`data/quality.json` has source-level metadata for many existing resources. UI styling for source-quality badges is present in `css/style.css`.
+
+Important distinction: `official` means first-party/provenance, not automatically scholarly verified. Do not label anything “scholarly verified” without evidence.
+
+### Kids videos
+A dedicated `kids-videos.html` prototype exists with age/topic filters, source-level badges, channel/series context, parent note and direct watch links. The existing `videos.html` remains the main family/kids video page and is linked prominently from the homepage.
 
 ## 10. Differentiation
 Google/YouTube/social platforms already recommend content. The project's advantage must be domain/context specificity:

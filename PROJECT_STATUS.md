@@ -43,7 +43,7 @@ The owner is Shia Ithna Ashari and follows Ayatollah Sayyid Ali Khamenei. Conten
 - Context-aware ranking and “why this fits” explanations complete.
 - Small-start recommendations complete through `js/parent-small-start.js`.
 - Optional deeper/next-step guidance complete.
-- Normal non-parent searches no longer show the Parent Support results banner; `js/parent-context.js` now guards the banner to structured parent-support contexts.
+- Normal non-parent searches no longer show the Parent Support results banner; `js/parent-context.js` guards the banner to structured parent-support contexts.
 
 ### Phase C — Ulema / Teacher Support
 
@@ -97,7 +97,7 @@ Do not create a duplicate resource database without a strong reason. Prefer a no
 - [x] Age-aware metadata
 - [x] Core frontend route inspection
 - [x] Practical visible QA checklist for search/need flows (`QA_CHECKLIST.md`)
-- [ ] Execute browser smoke tests and record final results
+- [x] Final browser smoke tests executed on deployed site
 - [ ] Automated tests (not currently available; do not claim execution)
 
 ### Phase B — Parent support
@@ -161,7 +161,7 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 
 ## Immediate next task
 
-**Use the browser smoke-test report as the current QA evidence, re-test the two changed areas (normal search banner + Ulema shared-plan open link), then close Phase A if those pass.** Resource Details/Visit also need one direct click-through check.
+**Phase D — Youth Engagement.** Start with a small MVP focused on short achievable youth tasks and watch/listen/read/practice combinations using existing resources. Do not create a new database or CMS.
 
 ## Continuation rule
 

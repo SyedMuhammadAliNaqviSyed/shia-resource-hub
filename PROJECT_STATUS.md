@@ -94,8 +94,9 @@ Do not create a duplicate resource database without a strong reason. Prefer a no
 - [x] Homepage need entry point
 - [x] Age-aware metadata
 - [x] Core frontend route inspection
-- [ ] Proper end-to-end verification of all frontend routes/data sources
-- [ ] Automated/visible tests for search and need flows
+- [x] Practical visible QA checklist for search/need flows (`QA_CHECKLIST.md`)
+- [ ] Execute browser smoke tests and record results
+- [ ] Automated tests (not currently available; do not claim execution)
 
 ### Phase B — Parent support
 
@@ -156,7 +157,7 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 
 ## Immediate next task
 
-Phase C MVP is complete. **Next: finish Phase A QA properly** — verify frontend routes/data sources end-to-end and add practical visible tests/checks for search and need flows. Do not start Phase D until this QA is complete.
+**Execute the browser smoke-test checklist in `QA_CHECKLIST.md` and record any failures/fixes.** Do not start Phase D until this QA is complete.
 
 ## Continuation rule
 

@@ -2,5 +2,10 @@
   "title":"Urdu Kids — Start Here",
   "description":"A small, focused Urdu-first collection for children. Start with these resources before browsing the wider video library.",
   "items":["urdu-faraj-story-time","urdu-ahlulbayt-kids","urdu-faraj-jawad-maahira"],
+  "ageBuckets":{
+    "3–5":{"status":"needs-more-material","label":"More Urdu preschool material needed","note":"No sufficiently verified Urdu-first 3–5 resources are currently in the curated set. Do not fill this gap with unreviewed links."},
+    "6–8":{"status":"available","items":["urdu-faraj-story-time","urdu-ahlulbayt-kids"]},
+    "9–12":{"status":"available","items":["urdu-faraj-story-time","urdu-ahlulbayt-kids","urdu-faraj-jawad-maahira"]}
+  },
   "parentNote":"These are curated starting points, not blanket approval of every upload. Preview the selected video and use age filters before independent viewing."
 }

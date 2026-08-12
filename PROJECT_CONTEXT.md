@@ -56,10 +56,14 @@ Structured metadata should include type/format, language, age suitability, topic
 Video is currently a major priority because children/youth naturally consume it heavily.
 
 Implemented/active kids-video direction:
-- `videos.html` is the existing family/kids video discovery page.
+- `videos.html` is the main family/kids video discovery page.
 - `kids-videos.html` is a dedicated age/topic kids-video discovery prototype.
 - Homepage now surfaces Kids Videos prominently with age 3–5, 6–8, 9–12 and Urdu entry points.
-- Video architecture is intended to preserve `channel → playlist/series → individual video` levels.
+- Video architecture preserves `channel → playlist/series → individual video` levels.
+- `videos.html` now exposes All resources, Shia channels, Playlists/series, age and language filters.
+- `js/video-section.js` now supports the `kind` filter (`channel` / `series`) in addition to age/language.
+- `data/kids-video-resources.json` contains curated Shia kids sources and can be expanded without changing page structure.
+- Current seeded sources include Ahlulbayt Kids, Hujja Kids, Faraj Kids — Jawad & Maahira, and Ahlbyt KIDS.
 - Channel-level quality must not imply every upload is suitable.
 - Video cards should show age/language/source context and parent notes where available.
 
@@ -131,7 +135,7 @@ This is only a prototype signal, not a final statistical ranking model. It shoul
 Important distinction: `official` means first-party/provenance, not automatically scholarly verified. Do not label anything “scholarly verified” without evidence.
 
 ### Kids videos
-A dedicated `kids-videos.html` prototype exists with age/topic filters, source-level badges, channel/series context, parent note and direct watch links. The existing `videos.html` remains the main family/kids video page and is linked prominently from the homepage.
+Dedicated kids page and main videos page now support age/language browsing and a channel-vs-series distinction. Curated Shia kids sources have been seeded in structured JSON. The system is ready for more verified channels/playlists/individual videos.
 
 ## 10. Differentiation
 Google/YouTube/social platforms already recommend content. The project's advantage must be domain/context specificity:
@@ -200,7 +204,7 @@ Not another YouTube clone, not a generic social network, not a dump of every Isl
 
 ## 16. Current next priorities
 1. Finish connecting feedback into real contextual ranking rather than standalone score utilities.
-2. Strengthen kids video/channel/playlist discovery and metadata.
+2. Expand and verify kids video/channel/playlist metadata, especially Urdu material.
 3. Make Ulema final recommendation selection and share links robust.
 4. Ensure parent receiving flow works cleanly.
 5. Ensure learner flow consumes real plans reliably.

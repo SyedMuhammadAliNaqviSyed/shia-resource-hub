@@ -1,0 +1,35 @@
+[
+  {
+    "id":"hujja-kids-channel",
+    "name":"Hujja Kids",
+    "kind":"channel",
+    "audience":["3–5","6–8","9–12"],
+    "formats":["Shows","Stories","Activities","Live"],
+    "topics":["Ahl al-Bayt","Islamic manners","Stories","Learning"],
+    "sourceLevel":"recognized",
+    "parentNote":"Use the channel/series level to choose age-appropriate episodes rather than treating every upload as equally suitable.",
+    "url":"https://hujjakids.com"
+  },
+  {
+    "id":"shiakids-video-collection",
+    "name":"ShiaKids video-friendly learning collection",
+    "kind":"collection",
+    "audience":["3–5","6–8","9–12"],
+    "formats":["Stories","Read-along","Activity demonstrations"],
+    "topics":["Imams","Karbala","Duas","Quran","Islamic manners"],
+    "sourceLevel":"official",
+    "parentNote":"Prefer short story/activity content and pair screen time with one small offline activity.",
+    "url":"https://shiakids.org"
+  },
+  {
+    "id":"islamic-kids-academy-video",
+    "name":"Islamic Kids Academy",
+    "kind":"platform",
+    "audience":["3–5","6–8","9–12"],
+    "formats":["Lessons","Interactive learning","Stories"],
+    "topics":["Islamic learning","Quran","Akhlaq","Shia teachings"],
+    "sourceLevel":"recognized",
+    "parentNote":"Use structured lessons when a child needs a clear learning goal instead of open-ended browsing.",
+    "url":"https://www.islamickidsacademy.com"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  {"level":"official","label":"Official source","score":100,"description":"First-party website or channel belonging to the named organization/institution."},
+  {"level":"recognized","label":"Recognized educational source","score":85,"description":"Established educational, research or community organization with a clear identity and track record."},
+  {"level":"scholar-linked","label":"Scholar-linked","score":85,"description":"Resource has a clearly identifiable scholar or scholarly institution associated with it."},
+  {"level":"community","label":"Community source","score":65,"description":"Useful community-created material with identifiable provenance, but not first-party."},
+  {"level":"unknown","label":"Source not yet assessed","score":35,"description":"Candidate resource discovered by search but provenance has not yet been established."}
+]

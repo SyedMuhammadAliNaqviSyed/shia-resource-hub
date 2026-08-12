@@ -19,17 +19,24 @@ Use this checklist for the current static HTML/CSS/JS build. It is intentionally
 
 ## Manual browser smoke tests
 
-These require an actual browser/UI session; the current tool environment does not provide a browser runner, so they remain pending rather than being falsely marked passed.
+Final browser smoke tests were executed on the deployed GitHub Pages site on 12 Aug 2026.
 
-- [ ] Open `needs.html` and click **Learn the Quran** → resources page opens with a populated search state.
-- [ ] Open `needs.html` and click **Help a child learn** → resources page opens with child-related results.
-- [ ] On `resources.html`, enter `Quran` → result count/cards update.
-- [ ] Change the age filter → only resources whose normalized `ageRange` includes that age remain.
-- [ ] Change language/format/quality filters → results update without a full page reload.
-- [ ] Open a resource **Details** link → `resource.html?id=...` opens.
-- [ ] Open a resource **Visit** link → only `http:`/`https:` URLs are allowed.
-- [ ] Open Parent Support, select age + goal + language/format/time, then open starting resources → structured context is preserved in the URL and used for ranking/context.
+- [x] Need Discovery: Quran, child learning, Ahlulbayt/history and format-related need links open populated resource searches.
+- [x] Search: Quran, Urdu and Kids searches update results; clear search works.
+- [x] Filters: age, language, format, quality and reset controls work.
+- [x] Parent Support: age + goal + language + format + time context is preserved and starting recommendations appear.
+- [x] Homepage: core search, category, Needs, Parent, Ulema, Kids and Collections routes work.
+- [x] Kids Videos: age, language, Shia channels, playlists/series and Urdu Kids section work.
+- [x] Normal resource search does not show the Parent Support results banner.
+- [x] Ulema shared learning plan preserves selected resource(s), age, goal and task when opened.
+- [x] Resource Details opens the correct `resource.html?id=...` page.
+- [x] Resource Visit opens the valid external HTTPS destination.
+
+### Remaining QA limitations
+
+- Automated tests are not available in this plain static project and were not claimed as executed.
+- The final smoke-test report marked all three remaining direct checks as PASS. Core Phase A browser QA can therefore be considered complete.
 
 ## Phase A disposition
 
-Core route/search/need implementation has been inspected at source level. A formal automated test runner and browser automation are not present in this plain static project. Do not claim the manual browser tests are passed until someone actually runs them in a browser.
+**Phase A browser QA complete.** No critical broken routes were found in the final smoke test. Continue with the roadmap rather than adding more QA-only work unless a regression appears.

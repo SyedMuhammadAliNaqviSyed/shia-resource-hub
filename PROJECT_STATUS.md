@@ -42,11 +42,12 @@ The owner is Shia Ithna Ashari and follows Ayatollah Sayyid Ali Khamenei. Conten
 - Parent context is interpreted on resources page.
 - Context-aware ranking and “why this fits” explanations complete.
 - Small-start recommendations complete through `js/parent-small-start.js`.
-- Optional deeper/next-step guidance complete: after the small start, parents are directed toward deeper reading/video/learning paths when needed.
+- Optional deeper/next-step guidance complete.
+- Normal non-parent searches no longer show the Parent Support results banner; `js/parent-context.js` now guards the banner to structured parent-support contexts.
 
 ### Phase C — Ulema / Teacher Support
 
-The existing MVP is now implemented in `ulema-support.html` + `js/ulema-support.js`:
+The existing MVP is implemented in `ulema-support.html` + `js/ulema-support.js`:
 
 - learner age selection: 3–5, 6–8, 9–12, 13–17, 18+
 - topic/goal selection: tarbiyat, Quran, practices/duas, history/seerah, youth learning, research
@@ -57,6 +58,7 @@ The existing MVP is now implemented in `ulema-support.html` + `js/ulema-support.
 - each resource can have frequency, minutes and a practical instruction
 - overall task is preserved
 - a shareable learning-plan URL can be generated/copied
+- after generating/copying, an explicit **Open shared learning plan** link is shown for end-to-end verification
 - existing resources can be changed without requiring a CMS
 
 This is intentionally a lightweight recommendation-set workflow, not a full admin/CMS system.
@@ -95,7 +97,7 @@ Do not create a duplicate resource database without a strong reason. Prefer a no
 - [x] Age-aware metadata
 - [x] Core frontend route inspection
 - [x] Practical visible QA checklist for search/need flows (`QA_CHECKLIST.md`)
-- [ ] Execute browser smoke tests and record results
+- [ ] Execute browser smoke tests and record final results
 - [ ] Automated tests (not currently available; do not claim execution)
 
 ### Phase B — Parent support
@@ -113,6 +115,7 @@ Do not create a duplicate resource database without a strong reason. Prefer a no
 - [x] Concise “why this fits” explanations on matching result cards
 - [x] Small-start recommendations rather than broad result lists
 - [x] Optional deeper/next-step guidance
+- [x] Prevent parent banner on normal non-parent searches
 
 Target flow: **Child age → parent's goal/need → language/format/time → small high-confidence set → why suitable → what parent does → optional next step**.
 
@@ -125,6 +128,7 @@ Target flow: **Child age → parent's goal/need → language/format/time → sma
 - [x] Per-resource order/frequency/time/instruction
 - [x] Shareable recommendation/learning-plan link
 - [x] Reusable recommendation state via URL
+- [x] Explicit openable shared-plan link for manual verification
 - [x] Lightweight MVP without CMS
 
 ### Phase D — Youth engagement
@@ -157,7 +161,7 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 
 ## Immediate next task
 
-**Execute the browser smoke-test checklist in `QA_CHECKLIST.md` and record any failures/fixes.** Do not start Phase D until this QA is complete.
+**Use the browser smoke-test report as the current QA evidence, re-test the two changed areas (normal search banner + Ulema shared-plan open link), then close Phase A if those pass.** Resource Details/Visit also need one direct click-through check.
 
 ## Continuation rule
 

@@ -1,0 +1,7 @@
+const key='shia-resource-hub-plan-feedback';
+const esc=s=>String(s||'').replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[c]));
+const q=new URLSearchParams(location.search);const planId=q.get('plan')||'shared';
+const root=document.getElementById('feedback');
+function save(value){let all={};try{all=JSON.parse(localStorage.getItem(key)||'{}')}catch{}all[planId]={value,at:new Date().toISOString()};localStorage.setItem(key,JSON.stringify(all));root.innerHTML=`<div class="support-result"><p class="eyebrow">Thank you</p><h2>${value==='worked'?'MashaAllah — noted.':value==='help'?'That is useful to know.':'We can keep the next step lighter.'}</h2><p>Your feedback can help decide what kind of resource or activity should come next.</p><a class="button" href="parent-plan.html${location.search}">Back to plan →</a></div>`}
+if(root)root.innerHTML=`<div class="support-result-head"><div><p class="eyebrow">Quick check-in</p><h2>How did this step go?</h2></div></div><p>You do not need to write a long report. Just choose what best describes the experience.</p><div class="feedback-grid"><button class="button" data-v="worked">Worked well</button><button class="button secondary" data-v="help">Child needed help</button><button class="button secondary" data-v="too-much">Too much / too long</button><button class="button secondary" data-v="lost-interest">Lost interest</button></div>`;
+root?.querySelectorAll('[data-v]').forEach(b=>b.onclick=()=>save(b.dataset.v));

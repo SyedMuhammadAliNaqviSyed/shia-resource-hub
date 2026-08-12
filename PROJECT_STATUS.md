@@ -63,6 +63,21 @@ The existing MVP is implemented in `ulema-support.html` + `js/ulema-support.js`:
 
 This is intentionally a lightweight recommendation-set workflow, not a full admin/CMS system.
 
+### Phase D — Youth Engagement MVP
+
+Implemented as a lightweight `youth.html` + `js/youth.js` experience using the existing resource directory rather than a new database/CMS:
+
+- youth age choices: 13–17 and 18+
+- short missions organized around Quran, practice, history, research and Ahlulbayt learning
+- each mission follows **watch/listen/read → practice → reflection**
+- mission links send the user into the existing resource directory with age + topic context
+- one mission can be marked complete locally
+- completion stores only the last mission in local browser storage; no account system was added
+- mobile-friendly responsive layout
+- homepage navigation and start-with-what-you-need area now link to Youth
+
+This is intentionally a small MVP. It does not add a new resource database, CMS, points economy or complicated gamification.
+
 ### Kids / video work — scoped and frozen
 
 - Kids/family video page and curated video data implemented.
@@ -133,7 +148,14 @@ Target flow: **Child age → parent's goal/need → language/format/time → sma
 
 ### Phase D — Youth engagement
 
-Short tasks, watch/listen/read/practice combinations, progress through a path, achievable goals, reflection/discussion prompts, useful modern digital skills/resources where appropriate, and modern presentation without compromising religious/editorial direction.
+- [x] Small youth MVP page
+- [x] Age-aware 13–17 / 18+ entry
+- [x] Short watch/listen/read → practice → reflection missions
+- [x] Existing-resource discovery links with age/topic context
+- [x] Local completion marker
+- [x] Homepage/navigation entry
+- [ ] Browser smoke test youth flow
+- [ ] Optional future progress/path expansion
 
 ### Phase E — Learning paths
 
@@ -161,7 +183,7 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 
 ## Immediate next task
 
-**Phase D — Youth Engagement.** Start with a small MVP focused on short achievable youth tasks and watch/listen/read/practice combinations using existing resources. Do not create a new database or CMS.
+**Run a browser smoke test for the new Youth MVP (`youth.html`) on the deployed site.** Verify age switching, mission/topic switching, resource-directory links, mission completion and mobile layout. If it passes, continue with the next small Youth MVP improvement only when it directly supports the roadmap.
 
 ## Continuation rule
 

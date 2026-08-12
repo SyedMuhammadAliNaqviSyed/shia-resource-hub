@@ -76,7 +76,27 @@ Implemented as a lightweight `youth.html` + `js/youth.js` experience using the e
 - mobile-friendly responsive layout
 - homepage navigation and start-with-what-you-need area now link to Youth
 
-This is intentionally a small MVP. It does not add a new resource database, CMS, points economy or complicated gamification.
+Browser smoke test: core flow passes; age/topic live click confirmation was partial due to browser-tool interaction limits, while source logic was verified.
+
+### Phase E — Learning Paths MVP
+
+Implemented as a small first-class learning-path layer using existing resource IDs:
+
+- `data/learning-paths.json` contains the first active paths.
+- `learning-paths.html` presents short purposeful journeys rather than a link dump.
+- Paths expose goal, audience, age range, level, estimated time, language and engagement mode.
+- Required steps link directly to existing `resource.html?id=...` pages.
+- Optional deeper resources remain explicitly optional.
+- Filters support all, youth, family and 18+ paths.
+- Related-resource links return users to the existing resource directory with path context.
+- No duplicate content database, CMS or new resource copies were introduced.
+
+Initial active paths:
+
+1. Quran Starter — Youth (13–17)
+2. Hadith Research Starter (18+)
+3. Practical Fiqh — Start Here (18+)
+4. Family Learning — Urdu Start (6–8)
 
 ### Kids / video work — scoped and frozen
 
@@ -154,12 +174,20 @@ Target flow: **Child age → parent's goal/need → language/format/time → sma
 - [x] Existing-resource discovery links with age/topic context
 - [x] Local completion marker
 - [x] Homepage/navigation entry
-- [ ] Browser smoke test youth flow
+- [x] Browser smoke test core flow
 - [ ] Optional future progress/path expansion
 
 ### Phase E — Learning paths
 
-Turn existing resources into short journeys such as `topic → short video → short reading → practice/reflection → optional deeper book`. Paths should be age-, language-, level-, and time-aware; short by default; and composed from existing resources.
+- [x] First-class learning-path data model
+- [x] Initial active paths
+- [x] Dedicated Learning Paths page
+- [x] Existing-resource step links
+- [x] Optional deeper steps
+- [x] Audience/age filters
+- [x] Estimated time + level + language metadata
+- [ ] Browser smoke test Learning Paths page
+- [ ] Expand path coverage only where it adds real user value
 
 ### Phase F — Recommendation intelligence
 
@@ -183,7 +211,7 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 
 ## Immediate next task
 
-**Run a browser smoke test for the new Youth MVP (`youth.html`) on the deployed site.** Verify age switching, mission/topic switching, resource-directory links, mission completion and mobile layout. If it passes, continue with the next small Youth MVP improvement only when it directly supports the roadmap.
+**Run a browser smoke test for the new Learning Paths MVP (`learning-paths.html`) on the deployed site.** Verify page loading, all four initial paths, age/audience filters, resource detail links, related-resource links and mobile layout. Do not expand the path library until this basic flow passes.
 
 ## Continuation rule
 

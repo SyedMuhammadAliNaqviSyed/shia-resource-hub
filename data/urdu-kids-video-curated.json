@@ -1,0 +1,44 @@
+[
+  {
+    "id":"urdu-faraj-story-time",
+    "name":"Faraj Kids — Story Time (Urdu)",
+    "type":"Video Series",
+    "kind":"series",
+    "languages":["Urdu"],
+    "ageRange":["6–8","9–12"],
+    "topics":["Prophets","Ahlulbayt","Imam Mahdi","Quran","Akhlaq","Ahkam"],
+    "sourceLevel":"community",
+    "free":true,
+    "url":"https://www.farajkids.org/videos/story-time-urdu/",
+    "description":"Urdu children's story collection including Prophet stories, Imam Husayn, Imam Mahdi, Quran and kids-ahkam material.",
+    "parentNote":"Select individual stories according to the child's age and sensitivity."
+  },
+  {
+    "id":"urdu-ahlulbayt-kids-prayer",
+    "name":"Ahlulbayt Kids — Shia Namaz & Tayammum",
+    "type":"Video Collection",
+    "kind":"series",
+    "languages":["Urdu","English"],
+    "ageRange":["6–8","9–12"],
+    "topics":["Prayer","Tayammum","Islamic practice"],
+    "sourceLevel":"community",
+    "free":true,
+    "url":"https://www.youtube.com/@ahlulbaytkids",
+    "description":"Animated Shia prayer and tayammum learning for children, including Urdu-titled Salah videos.",
+    "parentNote":"Use the specific prayer video needed rather than relying on general channel recommendations."
+  },
+  {
+    "id":"urdu-faraj-jawad-maahira",
+    "name":"Faraj Kids — Jawad & Maahira (Urdu Dubbed)",
+    "type":"Video Series",
+    "kind":"series",
+    "languages":["Urdu","English"],
+    "ageRange":["6–8","9–12"],
+    "topics":["Imam Hussain","Karbala","Nasheeds","Ahlulbayt"],
+    "sourceLevel":"community",
+    "free":true,
+    "url":"https://www.farajkids.org/videos/jawad-maahira/",
+    "description":"Urdu-dubbed children's nasheeds and stories, including material about Imam Hussain and Karbala.",
+    "parentNote":"Preview individual episodes when the topic is emotionally sensitive."
+  }
+]

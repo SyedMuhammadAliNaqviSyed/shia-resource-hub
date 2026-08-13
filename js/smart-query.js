@@ -6,7 +6,9 @@
     const s=String(raw||'').trim(); const out={q:s,age:'',language:'',type:'',time:''};
     for(const [re,age] of agePatterns){if(re.test(s)){out.age=age;break}}
     if(has(s,['urdu','اردو']))out.language='Urdu'; else if(has(s,['arabic','arabi','عربی']))out.language='Arabic'; else if(has(s,['persian','farsi','فارسی']))out.language='Persian'; else if(has(s,['english']))out.language='English';
-    if(has(s,['video','videos','watch','dekhna','دیکھنا']))out.type='Video'; else if(has(s,['audio','listen','sunna','سننا']))out.type='Audio'; else if(has(s,['book','books','kitab','کتاب','reading']))out.type='Book';
+    // Audio is an intent/relevance signal, not a hard format filter: the
+    // directory currently has no valid `Audio` type option.
+    if(has(s,['video','videos','watch','dekhna','دیکھنا']))out.type='Video'; else if(has(s,['book','books','kitab','کتاب','reading']))out.type='Book';
     if(/\b(?:5\s*(?:-|to)\s*10|5\s*[-–]\s*10)\s*(?:min|mins|minutes)?\b/i.test(s))out.time='5-10'; else if(/\b(?:10\s*(?:-|to)\s*20)\s*(?:min|mins|minutes)?\b/i.test(s))out.time='10-20'; else if(/\b20\s*\+\s*(?:min|mins|minutes)?\b/i.test(s))out.time='20-plus';
     const intentTerms=[['quran',['quran','qur’an','قرآن']],['hadith',['hadith','hadees','حدیث','احادیث']],['duas',['dua','duas','duain','دعاء','دعا']],['history',['history','tareekh','tarikh','تاریخ','karbala','کربلا']],['prayer',['prayer','namaz','salah','نماز','wuzu','wudhu','وضو']],['kids',['kids','kid','children','child','bachay','bacha','بچے','بچہ']],['youth',['youth','teen','teenager','jawan','jawaan','نوجوان']],['parents',['parent','parents','walidain','والدین','parenting','tarbiyat']]];
     const matched=intentTerms.filter(([,terms])=>has(s,terms)).map(([key])=>key);

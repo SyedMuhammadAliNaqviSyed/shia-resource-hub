@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A carefully selected gift of meaningful, educational and family-friendly films, animations and documentaries from Shia Resource Hub.">
+  <title>A Gift of Meaningful Viewing — Shia Resource Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gift-hero{padding:72px 0 52px;text-align:center}.gift-hero .eyebrow{margin-bottom:10px}.gift-hero h1{max-width:780px;margin:0 auto 18px}.gift-hero p{max-width:700px;margin:0 auto;font-size:1.08rem}.gift-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:26px}.gift-button{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border-radius:999px;border:1px solid currentColor;text-decoration:none;font-weight:700;cursor:pointer;background:transparent}.gift-button.primary{background:#111;color:#fff;border-color:#111}.gift-note{max-width:760px;margin:18px auto 0;font-size:.9rem;opacity:.78}.gift-section{padding:36px 0}.gift-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}.gift-card{display:flex;flex-direction:column;height:100%;padding:22px;border:1px solid rgba(0,0,0,.1);border-radius:18px;background:#fff;box-shadow:0 8px 28px rgba(0,0,0,.05)}.gift-card h3{margin:8px 0 9px}.gift-card p{margin:0 0 12px}.gift-meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.gift-pill{font-size:.78rem;padding:5px 9px;border-radius:999px;background:rgba(0,0,0,.06)}.why{margin:4px 0 18px;padding:12px 14px;border-left:3px solid currentColor;font-size:.9rem}.gift-card .gift-button{margin-top:auto}.gift-footer{text-align:center;padding:44px 0 70px}.gift-footer h2{margin-bottom:8px}.gift-footer p{max-width:620px;margin:0 auto 20px}.gift-disclaimer{font-size:.82rem;opacity:.72;max-width:850px;margin:20px auto 0}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);padding:10px 15px;border-radius:999px;background:#111;color:#fff;display:none;z-index:20}.toast.show{display:block}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">✦</span><span>Shia Resource Hub</span></a><nav aria-label="Primary navigation"><a href="resources.html">Resources</a><a href="videos.html">Kids Videos</a><a href="collections.html">Collections</a><a href="parent-support.html">Parent support</a><a href="ulema-support.html">Ulema support</a></nav></div></header>
+<main>
+<section class="gift-hero"><div class="container"><p class="eyebrow">🎁 A small gift from the Hub</p><h1>A Gift of Meaningful Viewing</h1><p>A carefully selected collection of meaningful, educational and family-friendly films, animations and documentaries. I picked these because they are worth exploring and sharing.</p><div class="gift-actions"><button class="gift-button primary" id="shareGift" type="button">🎁 Share this Gift</button><button class="gift-button" id="copyGift" type="button">Copy Link</button></div><p class="gift-note">Some links open a platform search rather than a claimed direct upload. This keeps the collection useful without pretending that a specific copy has been verified.</p></div></section>
+<section class="gift-section"><div class="container"><div id="giftSections"></div></div></section>
+<section class="gift-footer"><div class="container"><h2>Found something worth sharing?</h2><p>Send this collection to someone you care about. A useful story, a thoughtful film, or a good learning resource can be a small gift too.</p><div class="gift-actions"><button class="gift-button primary" id="shareGift2" type="button">Share with someone 🎁</button><a class="gift-button" href="videos.html">Explore the wider video library</a></div><p class="gift-disclaimer">This is a curated viewing collection, not blanket approval of every upload on a third-party platform. Parents should preview children's content and choose according to age and topic.</p></div></section>
+</main>
+<footer><div class="container footer-inner"><div><strong>Shia Resource Hub</strong><p>Discover. Learn. Explore.</p></div><div><a href="index.html">Home</a><a href="resources.html">Resources</a><a href="videos.html">Kids Videos</a><a href="collections.html">Collections</a></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const esc=s=>String(s).replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const groupOrder=['For Children','Stories & History','Family & Character','Thought & Learning'];
+function share(){const data={title:'A Gift of Meaningful Viewing — Shia Resource Hub',text:'I picked this small collection of meaningful films, animations and documentaries for you 🎁',url:location.href};if(navigator.share){navigator.share(data).catch(()=>{})}else{copyLink()}}
+function copyLink(){navigator.clipboard?.writeText(location.href).then(()=>toast('Gift link copied.')).catch(()=>toast('Copy the page link from your browser.'))}
+function toast(t){const el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2200)}
+async function load(){const root=document.getElementById('giftSections');try{const r=await fetch('data/gift-resources.json');if(!r.ok)throw new Error();const data=await r.json();root.innerHTML=groupOrder.map(cat=>{const items=data.items.filter(x=>x.category===cat);if(!items.length)return '';return `<section class="section"><div class="section-heading"><div><p class="eyebrow">Curated selection</p><h2>${esc(cat)}</h2></div></div><div class="gift-grid">${items.map(x=>`<article class="gift-card"><div class="gift-meta"><span class="gift-pill">${esc(x.age)}</span><span class="gift-pill">${esc(x.category)}</span></div><h3>${esc(x.name)}</h3><p>${esc(x.description)}</p><div class="why"><strong>Why I picked this:</strong><br>${esc(x.whySelected)}</div><a class="gift-button" href="${esc(x.url)}" target="_blank" rel="noopener noreferrer">Explore →</a></article>`).join('')}</div></section>`}).join('')}catch(e){root.innerHTML='<div class="empty">The gift collection could not be loaded right now.</div>'}}
+document.getElementById('shareGift').onclick=share;document.getElementById('shareGift2').onclick=share;document.getElementById('copyGift').onclick=copyLink;load();
+</script>
+</body>
+</html>

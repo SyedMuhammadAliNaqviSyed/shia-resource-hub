@@ -30,56 +30,11 @@ Core audiences: parents/families, children, youth/students, ulema/teachers/mento
 - Resource detail pages and external Visit links.
 - Shareable URL-based searches and filters.
 
-### Parent Support
-
-`parent-support.html` + related JS implement:
-
-- Child age, goal, language, format and manageable-time selection.
-- Structured discovery URL context.
-- Context-aware ranking and “why this fits” explanations.
-- Small-start recommendations and optional deeper/next-step guidance.
-- Normal searches do not show the Parent Support banner.
-
 **Browser smoke test: PASS.**
 
-### Ulema / Teacher Support
+### Parent / Ulema / Youth / Learning Paths
 
-`ulema-support.html` + `js/ulema-support.js` implement:
-
-- Age and topic/goal selection.
-- Preferred format and optional learner task.
-- Resource shortlist and ordering.
-- Per-resource frequency, minutes and practical instruction.
-- Shareable learning-plan URLs.
-- Openable shared-plan link for manual verification.
-
-**Browser smoke test: PASS.**
-
-### Youth Engagement MVP
-
-`youth.html` + `js/youth.js` implement:
-
-- 13–17 and 18+ age choices.
-- Quran, practice, history, research and Ahlulbayt missions.
-- Watch/listen/read → practice → reflection flow.
-- Existing-resource discovery links with age/topic context.
-- Local mission completion marker.
-- Responsive mobile layout.
-
-**Browser smoke test: PASS.** Age/topic live click confirmation had limited visual tooling, but source logic was verified.
-
-### Learning Paths MVP
-
-`data/learning-paths.json` + `learning-paths.html` implement:
-
-1. Quran Starter — Youth
-2. Hadith Research Starter
-3. Practical Fiqh — Start Here
-4. Family Learning — Urdu Start
-
-Cards expose goal, age/audience, level, estimated time, language, engagement type, required steps and optional deeper steps. Audience/age filters and related-resource links work.
-
-**Browser smoke test: PASS.** Homepage main nav, homepage start card, footer and mobile navigation were separately verified as PASS.
+Parent Support, Ulema/Teacher Support, Youth Engagement and Learning Paths MVPs are implemented and browser-tested. Homepage navigation, learning-path links and shared-plan flows were also verified.
 
 ### Kids Videos / Urdu Kids
 
@@ -88,39 +43,23 @@ Cards expose goal, age/audience, level, estimated time, language, engagement typ
 - Urdu Kids — Start Here curated section.
 - Three curated Urdu Kids entries are loaded at runtime.
 
-**Browser smoke test: PASS.** One prayer-card title differs slightly between data and deployed display; functionality is unaffected.
+**Browser smoke test: PASS.**
 
 ### Natural-Language Structured Discovery
 
-Natural-language queries can now extract structured signals such as:
+Natural-language queries extract structured signals such as age bands, Urdu/English language context, video format and time expressions. Age-only/language/format context remains visible.
 
-- `7 saal` → 6–8
-- `15 saal` → 13–17
-- `18+` → 18+
-- Urdu → Urdu language context
-- Video → Video format
-- time expressions such as 5–10 min → time context
-
-`parent-context.js` was updated so age-only or language/format-only extracted context remains visible.
-
-**Browser smoke test: PASS** for age-only, adult age-only, youth, full child query, normal-search regression and mobile. Audio required separate taxonomy handling.
+**Browser smoke test: PASS.**
 
 ### Audio intent / taxonomy
 
-The catalog currently has no clean `type: "Audio"` resources. Audio intent therefore works as **relevance/tag scoring**, not as a hard format filter. This avoids creating an invalid `Audio` dropdown state.
-
-Rawda is a strong audio candidate but is not Urdu-tagged, so it is correctly excluded from an Urdu-filtered query. Other multi-feature resources remain eligible.
+The catalog currently has no clean `type: "Audio"` resources. Audio intent therefore works as relevance/tag scoring, not as a hard format filter. This avoids creating an invalid Audio dropdown state.
 
 **Final Audio Intent browser smoke test: PASS.**
 
 ### Recommendation feedback safety
 
-`js/ranking-feedback.js` uses feedback only as a conservative secondary signal:
-
-- Minimum 3 observations per resource.
-- At least 2 mature resources before feedback reorder can run.
-- Feedback effect is capped.
-- Contextual relevance remains primary.
+Feedback is used conservatively as a secondary signal: minimum 3 observations per resource, at least 2 mature resources before reorder, and a capped effect. Contextual relevance remains primary.
 
 **Browser smoke test: 7/7 PASS.**
 
@@ -136,41 +75,50 @@ Runtime resource data is distributed across:
 - `data/quality.json`
 - `data/intent-aliases.json`
 
+Recent cleanup commits removed confirmed duplicate/cross-dataset records involving `al-islam-quran`, `sistani-qa`, broken Thaqalayn expansion paths, ShiaKids records, HREC records and duplicate app/cross-dataset records. See `data/resource-audit-2026-08-13.md` for the controlled curation baseline.
+
 Do not create a duplicate resource database without a strong reason. Prefer a normalized runtime model.
 
 ## QA status
 
-Major browser smoke-test areas completed and verified on the deployed site:
-
-- Need Discovery
-- Search and filters
-- Parent Support
-- Ulema Support
-- Resource Details + Visit
-- Homepage/navigation
-- Kids Videos
-- Youth
-- Learning Paths
-- Urdu Kids
-- Natural-language structured parsing
-- Audio intent
-- Recommendation feedback safety
+Major browser smoke-test areas have already been completed on the deployed GitHub Pages site, including Need Discovery, Search/Filters, Parent Support, Ulema Support, Resource Details/Visit, Homepage/navigation, Kids Videos, Youth, Learning Paths, Urdu Kids, natural-language parsing, Audio intent and recommendation-feedback safety.
 
 Automated tests are **not currently available/executed**. Do not claim automated test execution.
 
+**Phase A browser QA is complete. Do not repeat the broad QA suite unless a regression appears.**
+
+## Resource curation phase
+
+Current work is resource integrity and curation rather than another broad feature-testing cycle.
+
+### Curation rules
+
+- Preserve existing IDs unless a real identity problem requires a change.
+- Do not add the same canonical destination more than once across runtime datasets.
+- Treat URL variants as possible duplicates, not automatic duplicates; inspect destination purpose first.
+- Keep distinct resources when they provide materially different user value (for example a main site versus a dedicated search/tool/app).
+- Do not claim `official` or `verified` without a defensible source basis.
+- Prefer high-value, discoverable resources over catalogue growth for its own sake.
+- Work in small documented batches and verify after each meaningful batch.
+
 ## Roadmap / remaining work
+
+### Resource integrity and curation — CURRENT
+
+1. Reconcile the current runtime resource count from the live build/data loader.
+2. Check cross-dataset duplicate IDs and normalized canonical URLs.
+3. Review remaining high-confidence near-duplicates manually rather than deleting by hostname alone.
+4. Review candidate additions (including duas.org, al-shia.org, Rafed, Ziaraat, Alhassanain and Shia Maktab) only after overlap and source-quality checks.
+5. Add new resources in small documented batches.
+6. Run targeted live verification after each meaningful batch; defer the full regression suite until the resource curation pass is substantially complete.
 
 ### Recommendation intelligence
 
-Core natural-language structured parsing is implemented and browser-tested. Future improvements should be incremental and data-driven rather than replacing the current contextual ranking.
+Continue incremental, data-driven improvements rather than replacing the current contextual ranking.
 
 ### Ulema + parents + community network
 
 Longer-term: richer recommendation sets, parent usefulness feedback, curated collections, community submissions, quality/verification workflow, and analytics on what users actually find useful.
-
-### Optional future youth progress
-
-Progress/path expansion remains optional and should only be added if it provides real user value.
 
 ### Learning-path expansion
 
@@ -189,8 +137,8 @@ Do not expand the path library merely for quantity. Add paths only where they pr
 
 ## Immediate next task
 
-**Run a final repository/state audit for genuinely remaining implementation gaps.** Do not repeat already-verified browser tests or stale findings. Inspect current code/data first, identify only confirmed remaining work, then implement the highest-value small fix if one exists.
+**Continue the resource integrity audit from the documented 2026-08-13 baseline.** Reconcile the live/runtime count and normalized duplicate set first, then implement only confirmed high-value cleanup or additions in controlled batches. Do not repeat completed feature QA.
 
 ## Continuation rule
 
-When continuing in a new conversation, read this file first, inspect the current repository state, and continue from **Immediate next task** rather than asking the user to repeat project history.
+When continuing in a new conversation, read this file and `data/resource-audit-2026-08-13.md`, inspect the current repository state, and continue from the Immediate next task rather than asking the user to repeat project history.

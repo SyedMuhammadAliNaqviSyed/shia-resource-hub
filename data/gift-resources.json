@@ -1,0 +1,96 @@
+{
+  "title": "A Gift of Meaningful Viewing",
+  "intro": "A small, carefully selected collection of meaningful, educational and family-friendly films, animations and documentaries from the Shia Resource Hub video material.",
+  "items": [
+    {
+      "id": "gift-sulaiman-luqman",
+      "name": "Sulaiman aur Luqman",
+      "category": "For Children",
+      "age": "Kids & Family",
+      "description": "A children's story series presented in the source material as a way to learn basic Islamic manners, character and neighbourliness.",
+      "whySelected": "A gentle starting point for children and families.",
+      "url": "https://www.youtube.com/results?search_query=Sulaiman+Luqman+Al-Balagh+Payam+Media",
+      "sourceNote": "Source material lists Dailymotion, Aparat and YouTube search access; this page uses a YouTube search destination rather than claiming a verified direct upload."
+    },
+    {
+      "id": "gift-safar-e-ishq",
+      "name": "Safar-e-Ishq",
+      "category": "For Children",
+      "age": "Kids & Family",
+      "description": "A 2D animated presentation of Karbala, the trials of the children and Ahlul Haram, and the journey toward Kufa and Shaam, described in the source material as being made for children.",
+      "whySelected": "A meaningful historical story presented in an accessible animated format.",
+      "url": "https://www.youtube.com/results?search_query=Safar+e+Ishq+Karbala+Urdu+animation",
+      "sourceNote": "Source material lists Dailymotion, YouTube and ShiaTV search access."
+    },
+    {
+      "id": "gift-shah-e-khurasan",
+      "name": "Shah-e-Khurasan",
+      "category": "For Children",
+      "age": "Kids & School Level",
+      "description": "A 2D animation about the well-known account of Imam Ali Raza (A.S) and the deer, described in the source material as a child-friendly presentation.",
+      "whySelected": "A simple way to introduce a historical Ahlulbayt story to children.",
+      "url": "https://www.youtube.com/results?search_query=Shah+e+Khurasan+Animation",
+      "sourceNote": "Source material lists YouTube, Aparat and ShiaTV search access."
+    },
+    {
+      "id": "gift-princess-of-rome",
+      "name": "Princess of Rome",
+      "category": "Stories & History",
+      "age": "7+ / Family",
+      "description": "A 3D animated historical film about Bibi Nargis Khatoon, described in the source material as covering her journey from Rome to her marriage with Imam Hasan al-Askari (A.S).",
+      "whySelected": "A visually engaging historical story for family viewing.",
+      "url": "https://www.youtube.com/results?search_query=Princess+of+Rome+Urdu+dubbed+full+movie",
+      "sourceNote": "Source material lists Dailymotion, ShiaTV and YouTube search access."
+    },
+    {
+      "id": "gift-filshah",
+      "name": "Filshah / The Elephant King",
+      "category": "Stories & History",
+      "age": "5+ / Family",
+      "description": "An animated retelling of the account of the elephant army and the events associated with the Kaaba, described as a child-friendly and moral presentation.",
+      "whySelected": "A family-friendly way to explore a well-known Qur'anic-era story.",
+      "url": "https://www.youtube.com/results?search_query=The+Elephant+King+Filshah+Urdu+Dubbed",
+      "sourceNote": "Source material lists YouTube, Aparat and Dailymotion access."
+    },
+    {
+      "id": "gift-children-of-heaven",
+      "name": "Children of Heaven",
+      "category": "Family & Character",
+      "age": "Kids & Complete Family",
+      "description": "The story of siblings Ali and Zahra sharing one pair of shoes, presented in the source material as a lesson in dignity, love, patience and gratitude.",
+      "whySelected": "A strong family film centered on character and compassion.",
+      "url": "https://www.youtube.com/results?search_query=Children+of+Heaven+Bachgan+e+Asmaan+full+movie",
+      "sourceNote": "Source material lists Aparat, ShiaTV, YouTube and Dailymotion search access."
+    },
+    {
+      "id": "gift-color-of-paradise",
+      "name": "The Color of Paradise",
+      "category": "Family & Character",
+      "age": "Family & All Ages",
+      "description": "A story about a blind child and his father, described in the source material as encouraging gratitude and seeing blessings beyond physical sight.",
+      "whySelected": "A thoughtful family film with a strong emotional and moral theme.",
+      "url": "https://www.youtube.com/results?search_query=The+Color+of+Paradise+Rang+e+Khuda+Urdu",
+      "sourceNote": "Source material lists Aparat, YouTube and Dailymotion search access."
+    },
+    {
+      "id": "gift-gold-and-copper",
+      "name": "Gold and Copper",
+      "category": "Family & Character",
+      "age": "Youth & Adults",
+      "description": "A story of a Hawza student balancing religious study, family responsibilities and his wife's illness, described in the source material as a story of patience and devotion.",
+      "whySelected": "For older viewers looking for a reflective family and faith-centered story.",
+      "url": "https://www.youtube.com/results?search_query=Gold+and+Copper+Tala+va+Mes+Urdu",
+      "sourceNote": "Source material lists Aparat, ShiaTV and YouTube search access."
+    },
+    {
+      "id": "gift-science-in-islam",
+      "name": "Science in Islam / Islamic Golden Age",
+      "category": "Thought & Learning",
+      "age": "10+",
+      "description": "A documentary-style learning topic about the Islamic Golden Age and Muslim scholars such as Al-Khwarizmi and Ibn Sina, as described in the source material.",
+      "whySelected": "A useful bridge between Islamic history and curiosity about science and learning.",
+      "url": "https://www.youtube.com/results?search_query=Science+in+Islam+Islamic+Golden+Age+Urdu+Documentary",
+      "sourceNote": "Source material lists YouTube and Dailymotion search access."
+    }
+  ]
+}

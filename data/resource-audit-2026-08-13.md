@@ -44,12 +44,24 @@ Recent cleanup commits include:
 - `data/quality.json`
 - `data/intent-aliases.json`
 
+## Batch 1 — Core reference additions
+
+Added three high-confidence, non-overlapping reference resources after source and overlap review:
+
+- `rafed` — Rafed Cultural Development Network; broad Arabic Shia library, research and media resource.
+- `al-shia` — Al-Shia.org; Persian/Arabic Shia knowledge and research portal.
+- `ziaraat` — Ziaraat.com; dedicated Ziyarat literature and devotional reference.
+
+Source review confirmed that Rafed has a substantial Islamic library and research/media sections; Al-Shia describes itself as a Shia knowledge/research portal; Ziaraat provides dedicated Ziyarat literature. No existing matching IDs were found in the repository before addition. Claims such as `official`/`verified` were intentionally not added where the available evidence did not justify them.
+
+Commit: `b81add8` — Add verified core Shia reference resources batch
+
 ## Next audit sequence
 
 1. Reconcile the current runtime resource count from the live build/data loader.
 2. Check cross-dataset duplicate IDs and normalized canonical URLs.
 3. Review remaining high-confidence near-duplicates manually rather than deleting by hostname alone.
-4. Review candidate additions (e.g. duas.org, al-shia.org, Rafed, Ziaraat, Alhassanain, Shia Maktab) only after overlap and source-quality checks.
+4. Review candidate additions (e.g. duas.org, Alhassanain, Shia Maktab) only after overlap and source-quality checks.
 5. Add new resources in small documented batches.
 6. Run targeted live verification after each meaningful batch; defer the full regression suite until the resource curation pass is substantially complete.
 

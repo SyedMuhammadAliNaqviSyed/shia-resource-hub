@@ -1,6 +1,6 @@
 # Shia Resource Hub — Project Status & Continuation Guide
 
-> Handoff point for continuing the project in a future conversation. Read this before major changes.
+> Handoff point for continuing the project. Read this before major changes.
 
 ## Vision
 
@@ -14,100 +14,119 @@ Do not become a huge content dump. A smaller set of high-value, discoverable res
 
 ## Audience and age model
 
-Children may have access to phones/internet as early as 3–4 years old. Current age bands: 3–5, 6–8, 9–12, 13–17, 18+.
+Current age bands: 3–5, 6–8, 9–12, 13–17, 18+.
 
 Core audiences: parents/families, children, youth/students, ulema/teachers/mentors, and general learners/researchers.
 
-## Religious/editorial direction
+## Implemented / verified
 
-The owner is Shia Ithna Ashari and follows Ayatollah Sayyid Ali Khamenei. Content priority is Shia-compatible material, without unnecessarily branding the platform around the owner's personal identity. AI/recommendation logic is not a religious authority.
+### Foundation / Discovery
 
-## Implemented
-
-### Foundation / discovery
-
-- Learning-path architecture in `data/learning-paths.md`.
-- `js/search.js` derives `purpose`, `needs`, `goals`, and `ageRange` from existing resource metadata.
-- Multi-field relevance uses name, description, type, categories, languages, tags, audience, derived intelligence and intent aliases.
 - Need-based discovery page: `needs.html`.
-- Homepage has `What do you need?` / need-based entry point.
-- Resources page supports age-aware discovery and parent-context ranking.
-- Resource-card fit explanations are implemented.
+- Searchable resource directory with multi-field relevance scoring.
+- Search uses resource metadata plus intent aliases and derived intelligence.
+- Age-aware discovery and parent-context ranking.
+- Resource-card fit explanations.
+- Resource detail pages and external Visit links.
+- Shareable URL-based searches and filters.
 
-### Phase B — Parent Support
+### Parent Support
 
-- `parent-support.html` MVP complete.
-- Child age, goal, language, format and manageable-time selection complete.
-- Structured signals are passed into resource discovery.
-- Parent context is interpreted on resources page.
-- Context-aware ranking and “why this fits” explanations complete.
-- Small-start recommendations complete through `js/parent-small-start.js`.
-- Optional deeper/next-step guidance complete.
-- Normal non-parent searches no longer show the Parent Support results banner; `js/parent-context.js` guards the banner to structured parent-support contexts.
+`parent-support.html` + related JS implement:
 
-### Phase C — Ulema / Teacher Support
+- Child age, goal, language, format and manageable-time selection.
+- Structured discovery URL context.
+- Context-aware ranking and “why this fits” explanations.
+- Small-start recommendations and optional deeper/next-step guidance.
+- Normal searches do not show the Parent Support banner.
 
-The existing MVP is implemented in `ulema-support.html` + `js/ulema-support.js`:
+**Browser smoke test: PASS.**
 
-- learner age selection: 3–5, 6–8, 9–12, 13–17, 18+
-- topic/goal selection: tarbiyat, Quran, practices/duas, history/seerah, youth learning, research
-- preferred format: any, video, audio, book/reading
-- optional learner task/instruction
-- resource shortlist can be selected and carried into the Ulema flow
-- selected resources can be ordered
-- each resource can have frequency, minutes and a practical instruction
-- overall task is preserved
-- a shareable learning-plan URL can be generated/copied
-- after generating/copying, an explicit **Open shared learning plan** link is shown for end-to-end verification
-- existing resources can be changed without requiring a CMS
+### Ulema / Teacher Support
 
-This is intentionally a lightweight recommendation-set workflow, not a full admin/CMS system.
+`ulema-support.html` + `js/ulema-support.js` implement:
 
-### Phase D — Youth Engagement MVP
+- Age and topic/goal selection.
+- Preferred format and optional learner task.
+- Resource shortlist and ordering.
+- Per-resource frequency, minutes and practical instruction.
+- Shareable learning-plan URLs.
+- Openable shared-plan link for manual verification.
 
-Implemented as a lightweight `youth.html` + `js/youth.js` experience using the existing resource directory rather than a new database/CMS:
+**Browser smoke test: PASS.**
 
-- youth age choices: 13–17 and 18+
-- short missions organized around Quran, practice, history, research and Ahlulbayt learning
-- each mission follows **watch/listen/read → practice → reflection**
-- mission links send the user into the existing resource directory with age + topic context
-- one mission can be marked complete locally
-- completion stores only the last mission in local browser storage; no account system was added
-- mobile-friendly responsive layout
-- homepage navigation and start-with-what-you-need area now link to Youth
+### Youth Engagement MVP
 
-Browser smoke test: core flow passes; age/topic live click confirmation was partial due to browser-tool interaction limits, while source logic was verified.
+`youth.html` + `js/youth.js` implement:
 
-### Phase E — Learning Paths MVP
+- 13–17 and 18+ age choices.
+- Quran, practice, history, research and Ahlulbayt missions.
+- Watch/listen/read → practice → reflection flow.
+- Existing-resource discovery links with age/topic context.
+- Local mission completion marker.
+- Responsive mobile layout.
 
-Implemented as a small first-class learning-path layer using existing resource IDs:
+**Browser smoke test: PASS.** Age/topic live click confirmation had limited visual tooling, but source logic was verified.
 
-- `data/learning-paths.json` contains the first active paths.
-- `learning-paths.html` presents short purposeful journeys rather than a link dump.
-- Paths expose goal, audience, age range, level, estimated time, language and engagement mode.
-- Required steps link directly to existing `resource.html?id=...` pages.
-- Optional deeper resources remain explicitly optional.
-- Filters support all, youth, family and 18+ paths.
-- Related-resource links return users to the existing resource directory with path context.
-- No duplicate content database, CMS or new resource copies were introduced.
+### Learning Paths MVP
 
-Initial active paths:
+`data/learning-paths.json` + `learning-paths.html` implement:
 
-1. Quran Starter — Youth (13–17)
-2. Hadith Research Starter (18+)
-3. Practical Fiqh — Start Here (18+)
-4. Family Learning — Urdu Start (6–8)
+1. Quran Starter — Youth
+2. Hadith Research Starter
+3. Practical Fiqh — Start Here
+4. Family Learning — Urdu Start
 
-### Kids / video work — scoped and frozen
+Cards expose goal, age/audience, level, estimated time, language, engagement type, required steps and optional deeper steps. Audience/age filters and related-resource links work.
 
-- Kids/family video page and curated video data implemented.
-- Shia Kids Channels collection exists with age, language, focus, source-level and parent-note metadata.
-- Urdu Kids — Start Here exists with age filtering and parent-preview guidance.
-- Do not keep expanding video polish while roadmap work remains.
+**Browser smoke test: PASS.** Homepage main nav, homepage start card, footer and mobile navigation were separately verified as PASS.
+
+### Kids Videos / Urdu Kids
+
+- Kids video directory with age, language, topic, channel and playlist/series discovery.
+- Shia Kids Channels collection.
+- Urdu Kids — Start Here curated section.
+- Three curated Urdu Kids entries are loaded at runtime.
+
+**Browser smoke test: PASS.** One prayer-card title differs slightly between data and deployed display; functionality is unaffected.
+
+### Natural-Language Structured Discovery
+
+Natural-language queries can now extract structured signals such as:
+
+- `7 saal` → 6–8
+- `15 saal` → 13–17
+- `18+` → 18+
+- Urdu → Urdu language context
+- Video → Video format
+- time expressions such as 5–10 min → time context
+
+`parent-context.js` was updated so age-only or language/format-only extracted context remains visible.
+
+**Browser smoke test: PASS** for age-only, adult age-only, youth, full child query, normal-search regression and mobile. Audio required separate taxonomy handling.
+
+### Audio intent / taxonomy
+
+The catalog currently has no clean `type: "Audio"` resources. Audio intent therefore works as **relevance/tag scoring**, not as a hard format filter. This avoids creating an invalid `Audio` dropdown state.
+
+Rawda is a strong audio candidate but is not Urdu-tagged, so it is correctly excluded from an Urdu-filtered query. Other multi-feature resources remain eligible.
+
+**Final Audio Intent browser smoke test: PASS.**
+
+### Recommendation feedback safety
+
+`js/ranking-feedback.js` uses feedback only as a conservative secondary signal:
+
+- Minimum 3 observations per resource.
+- At least 2 mature resources before feedback reorder can run.
+- Feedback effect is capped.
+- Contextual relevance remains primary.
+
+**Browser smoke test: 7/7 PASS.**
 
 ## Current resource data
 
-Existing resource data is distributed across multiple JSON sources. `js/search.js` loads:
+Runtime resource data is distributed across:
 
 - `data/resources.json`
 - `data/additional-resources.json`
@@ -119,83 +138,43 @@ Existing resource data is distributed across multiple JSON sources. `js/search.j
 
 Do not create a duplicate resource database without a strong reason. Prefer a normalized runtime model.
 
-## Roadmap
+## QA status
 
-### Phase A — Foundation / Discovery
+Major browser smoke-test areas completed and verified on the deployed site:
 
-- [x] Existing resource data discovery
-- [x] Learning-path data model
-- [x] Derived resource intelligence
-- [x] Multi-field relevance search
-- [x] Need-based discovery page
-- [x] Homepage need entry point
-- [x] Age-aware metadata
-- [x] Core frontend route inspection
-- [x] Practical visible QA checklist for search/need flows (`QA_CHECKLIST.md`)
-- [x] Final browser smoke tests executed on deployed site
-- [ ] Automated tests (not currently available; do not claim execution)
+- Need Discovery
+- Search and filters
+- Parent Support
+- Ulema Support
+- Resource Details + Visit
+- Homepage/navigation
+- Kids Videos
+- Youth
+- Learning Paths
+- Urdu Kids
+- Natural-language structured parsing
+- Audio intent
+- Recommendation feedback safety
 
-### Phase B — Parent support
+Automated tests are **not currently available/executed**. Do not claim automated test execution.
 
-- [x] Parent Support MVP page
-- [x] Child age selection
-- [x] Parent goal selection
-- [x] Format preference
-- [x] Urdu language preference
-- [x] Manageable time/effort preference
-- [x] Pass structured signals into resource discovery URL
-- [x] Link parent support prominently from homepage/navigation
-- [x] Interpret parent age/need/language/format/time context on resources page
-- [x] Context-aware resource ranking
-- [x] Concise “why this fits” explanations on matching result cards
-- [x] Small-start recommendations rather than broad result lists
-- [x] Optional deeper/next-step guidance
-- [x] Prevent parent banner on normal non-parent searches
+## Roadmap / remaining work
 
-Target flow: **Child age → parent's goal/need → language/format/time → small high-confidence set → why suitable → what parent does → optional next step**.
+### Recommendation intelligence
 
-### Phase C — Ulema/teacher support
+Core natural-language structured parsing is implemented and browser-tested. Future improvements should be incremental and data-driven rather than replacing the current contextual ranking.
 
-- [x] Audience/age selection
-- [x] Topic/goal selection
-- [x] Small resource set / selected-resource workflow
-- [x] Optional learning task
-- [x] Per-resource order/frequency/time/instruction
-- [x] Shareable recommendation/learning-plan link
-- [x] Reusable recommendation state via URL
-- [x] Explicit openable shared-plan link for manual verification
-- [x] Lightweight MVP without CMS
+### Ulema + parents + community network
 
-### Phase D — Youth engagement
+Longer-term: richer recommendation sets, parent usefulness feedback, curated collections, community submissions, quality/verification workflow, and analytics on what users actually find useful.
 
-- [x] Small youth MVP page
-- [x] Age-aware 13–17 / 18+ entry
-- [x] Short watch/listen/read → practice → reflection missions
-- [x] Existing-resource discovery links with age/topic context
-- [x] Local completion marker
-- [x] Homepage/navigation entry
-- [x] Browser smoke test core flow
-- [ ] Optional future progress/path expansion
+### Optional future youth progress
 
-### Phase E — Learning paths
+Progress/path expansion remains optional and should only be added if it provides real user value.
 
-- [x] First-class learning-path data model
-- [x] Initial active paths
-- [x] Dedicated Learning Paths page
-- [x] Existing-resource step links
-- [x] Optional deeper steps
-- [x] Audience/age filters
-- [x] Estimated time + level + language metadata
-- [ ] Browser smoke test Learning Paths page
-- [ ] Expand path coverage only where it adds real user value
+### Learning-path expansion
 
-### Phase F — Recommendation intelligence
-
-Support natural-language needs such as: “Mera 7 saal ka beta Quran ki basic understanding start kare; Urdu mein engaging cheez chahiye.” Translate the request into structured signals and rank existing resources. Recommendations should explain why a resource was selected, age fit, format, language, purpose, and quality/verification signals.
-
-### Phase G — Ulema + parents + community network
-
-Longer-term: ulema recommendation sets, parent usefulness feedback, curated collections, community submissions, quality/verification workflow, and analytics on what users actually find/useful.
+Do not expand the path library merely for quantity. Add paths only where they provide a clear purposeful journey using existing high-quality resources.
 
 ## What NOT to do
 
@@ -203,16 +182,15 @@ Longer-term: ulema recommendation sets, parent usefulness feedback, curated coll
 - Do not manually tag hundreds of resources by default.
 - Do not duplicate resource databases unnecessarily.
 - Do not make the platform a generic everything-Islamic dump.
-- Do not assume children start device use only at age 10+.
-- Do not require parents to supervise every second; support imperfect real-life situations.
-- Do not rank only by popularity; consider relevance, quality, suitability and editorial fit.
+- Do not rank only by popularity; consider relevance, quality and suitability.
 - Do not make AI the religious authority.
-- Do not expand the video section with optional polish while the core roadmap has pending work.
+- Do not keep polishing videos while higher-value roadmap work remains.
+- Do not invent resource taxonomy entries without real supporting data.
 
 ## Immediate next task
 
-**Run a browser smoke test for the new Learning Paths MVP (`learning-paths.html`) on the deployed site.** Verify page loading, all four initial paths, age/audience filters, resource detail links, related-resource links and mobile layout. Do not expand the path library until this basic flow passes.
+**Run a final repository/state audit for genuinely remaining implementation gaps.** Do not repeat already-verified browser tests or stale findings. Inspect current code/data first, identify only confirmed remaining work, then implement the highest-value small fix if one exists.
 
 ## Continuation rule
 
-When continuing in a new conversation, read this file first, inspect the current repository state, verify checklist items, and continue from **Immediate next task** rather than asking the user to repeat project history.
+When continuing in a new conversation, read this file first, inspect the current repository state, and continue from **Immediate next task** rather than asking the user to repeat project history.

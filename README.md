@@ -1,6 +1,6 @@
 # Shia Resource Hub
 
-A curated directory for discovering Shia educational, scholarly, digital, cultural, and community resources.
+A curated directory for discovering Shia educational, scholarly, digital, cultural, family, youth, and community resources.
 
 ## Vision
 
@@ -9,17 +9,22 @@ Good resources already exist across the internet, but they are often difficult t
 ## Current features
 
 - Responsive homepage with accessible search and navigation
-- Searchable resource directory
-- Dynamic category, language, format, and quality filters
-- Search relevance scoring plus name, newest, verified, and free sorting
-- Shareable URL-based filters and searches
-- Resource detail pages
-- Resource metadata: type, languages, categories, audience, tags, dates, and trust metadata
-- Featured and recently added resources
-- Curated collections and Start Here paths
+- Searchable resource directory with contextual relevance scoring
+- Dynamic category, language, format, quality, age, time, and sorting controls
+- Shareable URL-based searches, filters, parent-support context, and learning plans
+- Resource detail pages with metadata, trust badges, and external Visit links
+- Featured resources, recent resources, curated collections, and Learning Paths
+- Need-based discovery for common goals such as Quran learning, children/family learning, books, video, and audio
+- Parent Support flow for age, goal, language, format, and time-based discovery
+- Ulema Support flow for building and sharing resource-based learning plans
+- Youth Engagement MVP with age/topic missions and lightweight completion feedback
+- Kids Videos directory with age, language, topic, channel, and playlist/series discovery
+- Curated Urdu Kids — Start Here collection for Urdu-speaking families
+- Natural-language discovery that extracts structured age, language, format, and time signals where supported
+- Audio intent/relevance support without inventing an `Audio` format when the catalog taxonomy does not contain that type
+- Lightweight recommendation feedback with conservative observation gating so feedback does not override contextual relevance
 - Graceful handling of missing resource datasets
-- Community-first mission page
-- Static hosting friendly architecture
+- Static hosting friendly architecture for GitHub Pages
 
 ## Resource data
 
@@ -39,10 +44,12 @@ The interface includes accessible labels for search and navigation controls, res
 
 The project is plain HTML, CSS and JavaScript and requires no backend for the current version. Before publishing changes, check the affected page at desktop and mobile widths, verify that filters/search URLs behave correctly, and avoid assigning trust metadata without checking the specific destination.
 
+Manual browser smoke tests have been used for the major discovery flows, including Need Discovery, Parent Support, Ulema Support, Youth, Learning Paths, Kids Videos, Urdu Kids, resource details/Visit, natural-language structured parsing, and recommendation-feedback safety.
+
 ## Tech
 
 Plain HTML, CSS and JavaScript. No backend is required for the current version, making it suitable for GitHub Pages.
 
 ## Project status
 
-Early public prototype. Resource quality, categorization, accessibility, multilingual support, and community contribution workflows will continue to improve.
+Early public prototype. Core discovery flows are implemented and smoke-tested; resource quality, categorization, accessibility, multilingual support, and community contribution workflows will continue to improve.

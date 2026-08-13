@@ -1,9 +1,12 @@
 (() => {
   const p = new URLSearchParams(location.search);
-  const isParentContext = p.has('age') && (p.has('time') || p.has('language') || p.has('type'));
+  const hasSupportContext = ['age', 'time', 'language', 'type'].some(key => {
+    const value = p.get(key);
+    return value && value !== 'All' && value !== 'any';
+  });
   const apply = () => {
     const box = document.getElementById('supportContext');
-    if (box && !isParentContext) box.innerHTML = '';
+    if (box && !hasSupportContext) box.innerHTML = '';
   };
   document.addEventListener('DOMContentLoaded', apply);
   new MutationObserver(apply).observe(document.documentElement, { childList: true, subtree: true });

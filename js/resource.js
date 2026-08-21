@@ -1,6 +1,6 @@
 const esc=(s='')=>s.replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#039;'}[c]));
 const safeUrl=(value='')=>{try{const u=new URL(value,location.href);return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}};
-const DATA_PATHS=['data/resources.json','data/additional-resources.json','data/research-resources.json','data/urdu-south-asia-resources.json','data/expansion-batch-01.json','data/expansion-batch-02.json','data/expansion-batch-03.json'];
+const DATA_PATHS=['data/resources.json','data/additional-resources.json','data/research-resources.json','data/urdu-south-asia-resources.json','data/expansion-batch-01.json','data/expansion-batch-02.json','data/expansion-batch-03.json','data/expansion-batch-04-iran.json'];
 const QUALITY_PATH='data/quality.json';
 const LAST_KEY='srh-last-resource';
 const quality=r=>{const b=[];if(r.verified)b.push('<span class="quality-badge verified">✓ Verified</span>');if(r.official)b.push('<span class="quality-badge official">Official</span>');if(r.free)b.push('<span class="quality-badge free">Free</span>');return b.join('')};

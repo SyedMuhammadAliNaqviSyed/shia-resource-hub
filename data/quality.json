@@ -22,5 +22,15 @@
   {"id":"islamicmobility","verified":true,"free":true,"sourceLevel":"recognized"},
   {"id":"hubeali","verified":true,"free":true,"sourceLevel":"recognized"},
   {"id":"hidayat-library","verified":true,"free":true,"sourceLevel":"recognized"},
-  {"id":"shia-pk-duas","verified":true,"free":true,"sourceLevel":"recognized"}
+  {"id":"shia-pk-duas","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"khamenei-ir","verified":true,"official":true,"free":true,"sourceLevel":"official"},
+  {"id":"noorlib","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"hawzah-net","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"noor-hadith","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"noorsoft","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"tebyan","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"ghaemiyeh","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"eshia-lib","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"islamquest","verified":true,"free":true,"sourceLevel":"recognized"},
+  {"id":"imam-reza-net","verified":true,"free":true,"sourceLevel":"recognized"}
 ]

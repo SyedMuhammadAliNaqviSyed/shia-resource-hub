@@ -1,7 +1,9 @@
 [
   {"id":"start-here","title":"Start Here","description":"A simple path for someone discovering Shia resources for the first time.","category":"Learning","tags":["Beginner","Learning","Quran","Hadith"],"search":"quran hadith beginner"},
-  {"id":"urdu-south-asia","title":"Urdu & South Asia","description":"Resources especially useful for Urdu-speaking and South Asian users.","category":"Learning","tags":["Urdu","South Asia","Learning"],"search":"Urdu"},
+  {"id":"urdu-south-asia","title":"Urdu & South Asia","description":"Books, apps and media especially useful for Urdu-speaking families in Pakistan and India.","category":"Learning","tags":["Urdu","South Asia","Apps","Books"],"search":"Urdu"},
   {"id":"kids-families","title":"Kids & Families","description":"Age-appropriate books, activities and learning resources for children and parents.","category":"Kids","tags":["Kids","Families","Education"],"search":"kids"},
   {"id":"research","title":"Research Desk","description":"Searchable texts, libraries and reference material for serious study.","category":"Research","tags":["Research","Library","Hadith","Books"],"search":"research"},
-  {"id":"fiqh-practical","title":"Practical Fiqh","description":"Resources for practical questions and learning Islamic jurisprudence.","category":"Learning","tags":["Fiqh","Learning","Practical"],"search":"fiqh"}
+  {"id":"fiqh-practical","title":"Practical Fiqh","description":"Resources for practical questions and learning Islamic jurisprudence.","category":"Learning","tags":["Fiqh","Learning","Practical"],"search":"fiqh"},
+  {"id":"duas-ziyarat","title":"Duas & Ziyarat","description":"Daily supplications, ziyarat texts and devotion tools for personal practice.","category":"Duas","tags":["Duas","Ziyarat","Devotion"],"search":"duas ziyarat"},
+  {"id":"youth-english","title":"Youth English Learning","description":"English lectures, beliefs series and study tools suited for teens and young adults.","category":"Learning","tags":["Youth","English","Beliefs"],"search":"youth english"}
 ]

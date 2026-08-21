@@ -2,6 +2,7 @@ const esc=(s='')=>s.replace(/[&<>\"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','
 const safeUrl=(value='')=>{try{const u=new URL(value,location.href);return ['http:','https:'].includes(u.protocol)?u.href:''}catch{return ''}};
 const DATA_PATHS=['data/resources.json','data/additional-resources.json','data/research-resources.json','data/urdu-south-asia-resources.json','data/expansion-batch-01.json','data/expansion-batch-02.json','data/expansion-batch-03.json'];
 const QUALITY_PATH='data/quality.json';
+const LAST_KEY='srh-last-resource';
 const quality=r=>{const b=[];if(r.verified)b.push('<span class="quality-badge verified">✓ Verified</span>');if(r.official)b.push('<span class="quality-badge official">Official</span>');if(r.free)b.push('<span class="quality-badge free">Free</span>');return b.join('')};
 async function getResources(){const [sets,qualityData]=await Promise.all([Promise.all(DATA_PATHS.map(p=>fetch(p).then(r=>r.ok?r.json():[]).catch(()=>[]))),fetch(QUALITY_PATH).then(r=>r.ok?r.json():[]).catch(()=>[])]);const qualityMap=new Map(qualityData.map(x=>[x.id,x]));const seen=new Set();return sets.flat().filter(r=>{if(!r?.id||seen.has(r.id))return false;seen.add(r.id);return true}).map(r=>({...r,...(qualityMap.get(r.id)||{})}))}
 const words=r=>[r.name,r.description,r.type,...(r.categories||[]),...(r.audience||[]),...(r.tags||[]),...(r.languages||[])].join(' ').toLowerCase();
@@ -19,8 +20,6 @@ const guidance=r=>{
   if(/question|answer|qa|guidance/.test(text))purpose.push('Finding answers and guidance');
   if(/research|academic|encyclopedia/.test(text))purpose.push('Research and deeper study');
   if(!purpose.length)purpose.push('General Islamic learning and discovery');
-
-  // Prefer explicit metadata over keyword guesses (avoids labeling adult libraries as ages 3–5).
   let age=[];
   if(Array.isArray(r.ageRange)&&r.ageRange.length){
     age=r.ageRange.slice(0,5);
@@ -32,9 +31,8 @@ const guidance=r=>{
     if(kids&&!research)age.push('3–5','6–8','9–12');
     if(youth)age.push('13–17');
     if(research||aud.some(a=>/general|adult/.test(a))||!age.length)age.push('18+');
-    if(aud.some(a=>/parent|famil/.test(a)))age=age.filter(x=>x!=='18+').concat(age.includes('18+')?[]:[]).concat(['Parents / families']);
+    if(aud.some(a=>/parent|famil/.test(a)))age=[...new Set([...age,'Parents / families'])];
   }
-  // Audience labels as fallback display when no ages
   const who=age.length?age:(r.audience||['General']);
   return {purpose:[...new Set(purpose)].slice(0,4),age:[...new Set(who)].slice(0,5)};
 };
@@ -50,6 +48,9 @@ function setMeta(r){
   ensure('og:description',desc.slice(0,160));
   ensure('og:type','website');
   ensure('og:url',location.href);
+}
+function remember(r){
+  try{localStorage.setItem(LAST_KEY,JSON.stringify({id:r.id,name:r.name,at:Date.now()}))}catch{}
 }
 async function copyPageLink(btn){
   const url=location.href;
@@ -71,4 +72,4 @@ async function sharePage(r){
     const btn=document.getElementById('copyLinkBtn');if(btn)copyPageLink(btn);
   }
 }
-document.addEventListener('DOMContentLoaded',async()=>{const box=document.querySelector('#resourceDetail');if(!box)return;try{const resources=await getResources();const id=new URLSearchParams(location.search).get('id');const r=resources.find(x=>x.id===id);if(!r){box.innerHTML='<div class="empty"><h2>Resource not found</h2><p>It may have been moved or removed from the directory. Newer batches load from multiple files — try browsing the full directory.</p><a class="button" href="resources.html">Browse resources</a></div>';return}setMeta(r);const date=r.updatedAt||r.addedAt,url=safeUrl(r.url),g=guidance(r);const related=resources.filter(x=>x.id!==r.id).map(x=>({r:x,s:scoreRelated(r,x)})).filter(x=>x.s>1).sort((a,b)=>b.s-a.s).slice(0,3).map(x=>x.r);const tagList=(items=[])=>items.map(x=>`<span class="tag">${esc(x)}</span>`).join('');box.innerHTML=`<p class="eyebrow">${esc(r.type)}</p><h1>${esc(r.name)}</h1>${quality(r)?`<div class="quality-row detail-quality">${quality(r)}</div>`:''}<p class="detail-description">${esc(r.description)}</p><div class="guidance-panel"><div><h2>What can this help with?</h2><div class="tags guidance-tags">${tagList(g.purpose)}</div></div><div><h2>Who may find it useful?</h2><div class="tags guidance-tags">${tagList(g.age)}</div></div></div><div class="detail-grid"><div><h3>Categories</h3><div class="tags">${tagList(r.categories)}</div></div><div><h3>Languages</h3><div class="tags">${tagList(r.languages)}</div></div><div><h3>Audience</h3><div class="tags">${tagList(r.audience)}</div></div><div><h3>Tags</h3><div class="tags">${tagList(r.tags)}</div></div></div>${related.length?`<section class="related-resources"><h2>A useful next step</h2><p>Explore one of these related resources if you want to go further.</p><div class="related-grid">${related.map(x=>`<a class="related-card" href="resource.html?id=${encodeURIComponent(x.id)}"><span class="badge">${esc(x.type||'Resource')}</span><strong>${esc(x.name)}</strong><small>${esc(x.description||'Explore this related resource.')}</small></a>`).join('')}</div></section>`:''}${date?`<p class="detail-updated">Last reviewed/updated: ${esc(date)}</p>`:''}<div class="detail-actions">${url?`<a class="button" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Visit resource →</a>`:''}<button type="button" class="button secondary-button" id="shareBtn">Share</button><button type="button" class="button secondary-button" id="copyLinkBtn">Copy link</button><a class="button secondary-button" href="resources.html">Explore more</a></div>`;const shareBtn=document.getElementById('shareBtn');const copyBtn=document.getElementById('copyLinkBtn');if(shareBtn)shareBtn.onclick=()=>sharePage(r);if(copyBtn)copyBtn.onclick=()=>copyPageLink(copyBtn)}catch(e){console.error(e);box.innerHTML='<div class="empty">Unable to load this resource right now.</div>'}});
+document.addEventListener('DOMContentLoaded',async()=>{const box=document.querySelector('#resourceDetail');if(!box)return;try{const resources=await getResources();const id=new URLSearchParams(location.search).get('id');const r=resources.find(x=>x.id===id);if(!r){box.innerHTML='<div class="empty"><h2>Resource not found</h2><p>It may have been moved or removed from the directory. Newer batches load from multiple files — try browsing the full directory.</p><a class="button" href="resources.html">Browse resources</a></div>';return}setMeta(r);remember(r);const date=r.updatedAt||r.addedAt,url=safeUrl(r.url),g=guidance(r);const related=resources.filter(x=>x.id!==r.id).map(x=>({r:x,s:scoreRelated(r,x)})).filter(x=>x.s>1).sort((a,b)=>b.s-a.s).slice(0,3).map(x=>x.r);const tagList=(items=[])=>items.map(x=>`<span class="tag">${esc(x)}</span>`).join('');box.innerHTML=`<p class="eyebrow">${esc(r.type)}</p><h1>${esc(r.name)}</h1>${quality(r)?`<div class="quality-row detail-quality">${quality(r)}</div>`:''}<p class="detail-description">${esc(r.description)}</p><div class="guidance-panel"><div><h2>What can this help with?</h2><div class="tags guidance-tags">${tagList(g.purpose)}</div></div><div><h2>Who may find it useful?</h2><div class="tags guidance-tags">${tagList(g.age)}</div></div></div><div class="detail-grid"><div><h3>Categories</h3><div class="tags">${tagList(r.categories)}</div></div><div><h3>Languages</h3><div class="tags">${tagList(r.languages)}</div></div><div><h3>Audience</h3><div class="tags">${tagList(r.audience)}</div></div><div><h3>Tags</h3><div class="tags">${tagList(r.tags)}</div></div></div>${related.length?`<section class="related-resources"><h2>A useful next step</h2><p>Explore one of these related resources if you want to go further.</p><div class="related-grid">${related.map(x=>`<a class="related-card" href="resource.html?id=${encodeURIComponent(x.id)}"><span class="badge">${esc(x.type||'Resource')}</span><strong>${esc(x.name)}</strong><small>${esc(x.description||'Explore this related resource.')}</small></a>`).join('')}</div></section>`:''}${date?`<p class="detail-updated">Last reviewed/updated: ${esc(date)}</p>`:''}<div class="detail-actions">${url?`<a class="button" href="${esc(url)}" target="_blank" rel="noopener noreferrer">Visit resource →</a>`:''}<button type="button" class="button secondary-button" id="shareBtn">Share</button><button type="button" class="button secondary-button" id="copyLinkBtn">Copy link</button><a class="button secondary-button" href="resources.html">Explore more</a></div>`;const shareBtn=document.getElementById('shareBtn');const copyBtn=document.getElementById('copyLinkBtn');if(shareBtn)shareBtn.onclick=()=>sharePage(r);if(copyBtn)copyBtn.onclick=()=>copyPageLink(copyBtn)}catch(e){console.error(e);box.innerHTML='<div class="empty">Unable to load this resource right now.</div>'}});

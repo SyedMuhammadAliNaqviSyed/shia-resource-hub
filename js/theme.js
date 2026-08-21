@@ -8,7 +8,7 @@
     root.setAttribute('data-theme',dark?'dark':'light');
     root.style.colorScheme=dark?'dark':'light';
     const meta=document.querySelector('meta[name="theme-color"]');
-    if(meta)meta.content=dark?'#0f1612':'#176b4d';
+    if(meta)meta.content=dark?'#0c1210':'#176b4d';
     document.querySelectorAll('[data-theme-toggle]').forEach(btn=>{
       btn.setAttribute('aria-pressed',String(dark));
       btn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');

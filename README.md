@@ -17,40 +17,19 @@ Prefer a smaller set of high-value, well-described resources over a large uncura
 ## Current features
 
 - Responsive homepage with search and navigation
-- Searchable resource directory with relevance scoring and filters
+- Searchable resource directory with relevance scoring, filters, and load more
 - Shareable URL-based searches and filters
-- Resource detail pages with metadata and Visit links
+- Resource detail pages with metadata, Visit, Share, and Copy link
 - Featured / recent resources and curated collections
 - Need-based discovery, Parent Support, Ulema Support, Youth, Learning Paths
 - Kids Videos directory with age and language filters
 - Urdu & South Asia focused resources and starter path
-- Natural-language style search signals where supported
-- Quality badges (`verified`, `official`, `free`) as editorial metadata
+- Quality badges (`verified`, `official`, `free`)
+- SEO basics: robots.txt, sitemap.xml, Open Graph tags
 - Static hosting on GitHub Pages (plain HTML/CSS/JS)
-
-## Resource data
-
-Runtime datasets load in this order:
-
-1. `data/resources.json`
-2. `data/additional-resources.json`
-3. `data/research-resources.json`
-4. `data/urdu-south-asia-resources.json`
-5. `data/expansion-batch-01.json`
-6. `data/expansion-batch-02.json`
-7. `data/expansion-batch-03.json`
-8. `data/quality.json` (overlay)
-
-Schema and curation rules: `data/schema.md`, `data/resource-quality-checklist.md`.
-
-## Adding resources
-
-Use stable IDs, canonical URLs, factual descriptions, and accurate language/audience metadata. Do not mark `verified` or `official` without checking the destination. Prefer small documented batches.
-
-Suggest via GitHub issue template, or edit JSON carefully and open a PR.
 
 ## Status
 
-**v1 public directory** — core discovery flows and curated resource sets are in place. Further growth should stay quality-first and feedback-driven.
+**v1.2 public directory** — core discovery flows are in place. Further growth should stay quality-first and feedback-driven.
 
-See `PROJECT_STATUS.md` and the latest `data/resource-audit-*.md` for continuation notes.
+See `PROJECT_STATUS.md` for continuation notes.

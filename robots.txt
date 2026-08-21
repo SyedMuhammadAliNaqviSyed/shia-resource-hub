@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://syedmuhammadalinaqvisyed.github.io/shia-resource-hub/sitemap.xml

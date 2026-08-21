@@ -34,116 +34,67 @@ Core audiences: parents/families, children, youth/students, ulema/teachers/mento
 
 ### Parent / Ulema / Youth / Learning Paths
 
-Parent Support, Ulema/Teacher Support, Youth Engagement and Learning Paths MVPs are implemented and browser-tested. Homepage navigation, learning-path links and shared-plan flows were also verified.
+Parent Support, Ulema/Teacher Support, Youth Engagement and Learning Paths MVPs are implemented and browser-tested.
+
+Learning paths expanded (2026-08-21b) with Duas, Beliefs (English youth), and Digital Library Desk paths.
 
 ### Kids Videos / Urdu Kids
 
 - Kids video directory with age, language, topic, channel and playlist/series discovery.
 - Shia Kids Channels collection.
 - Urdu Kids — Start Here curated section.
-- Three curated Urdu Kids entries are loaded at runtime.
 
 **Browser smoke test: PASS.**
-
-### Natural-Language Structured Discovery
-
-Natural-language queries extract structured signals such as age bands, Urdu/English language context, video format and time expressions. Age-only/language/format context remains visible.
-
-**Browser smoke test: PASS.**
-
-### Audio intent / taxonomy
-
-The catalog currently has no clean `type: "Audio"` resources. Audio intent therefore works as relevance/tag scoring, not as a hard format filter. This avoids creating an invalid Audio dropdown state.
-
-**Final Audio Intent browser smoke test: PASS.**
-
-### Recommendation feedback safety
-
-Feedback is used conservatively as a secondary signal: minimum 3 observations per resource, at least 2 mature resources before reorder, and a capped effect. Contextual relevance remains primary.
-
-**Browser smoke test: 7/7 PASS.**
 
 ## Current resource data
 
-Runtime resource data is distributed across (same order in `js/app.js` and `js/search.js`):
+Runtime datasets (same order in `js/app.js` and `js/search.js`):
 
-- `data/resources.json`
-- `data/additional-resources.json`
-- `data/research-resources.json`
-- `data/urdu-south-asia-resources.json`
-- `data/expansion-batch-01.json`
-- `data/expansion-batch-02.json`
-- `data/quality.json` (overlay)
-- `data/intent-aliases.json`
+1. `data/resources.json`
+2. `data/additional-resources.json`
+3. `data/research-resources.json`
+4. `data/urdu-south-asia-resources.json`
+5. `data/expansion-batch-01.json`
+6. `data/expansion-batch-02.json`
+7. `data/expansion-batch-03.json` *(new 2026-08-21b)*
+8. `data/quality.json` (overlay)
 
-### 2026-08-21 integrity update
+### Recent integrity + curation
 
-- Removed cross-dataset duplicate IDs `rafed`, `al-shia`, `ziaraat`, `shia-maktab` from `expansion-batch-01.json` (canonical copies remain in `additional-resources.json`).
-- Unified homepage and directory data loaders so both include `expansion-batch-02.json`.
-- See `data/resource-audit-2026-08-21.md`.
+- 2026-08-21: removed cross-dataset duplicates; unified loaders for batch-02
+- 2026-08-21b: added high-value batch-03 (Alhassanain, Thaqlain, House of Taha, Shia Lectures, Shia Central, Shia Companion app); expanded learning paths
 
-Do not create a duplicate resource database without a strong reason. Prefer a normalized runtime model.
-
-## QA status
-
-Major browser smoke-test areas have already been completed on the deployed GitHub Pages site, including Need Discovery, Search/Filters, Parent Support, Ulema Support, Resource Details/Visit, Homepage/navigation, Kids Videos, Youth, Learning Paths, Urdu Kids, natural-language parsing, Audio intent and recommendation-feedback safety.
-
-Automated tests are **not currently available/executed**. Do not claim automated test execution.
-
-**Phase A browser QA is complete. Do not repeat the broad QA suite unless a regression appears.**
+See `data/resource-audit-2026-08-21.md` and `data/resource-audit-2026-08-21b.md`.
 
 ## Resource curation phase
-
-Current work is resource integrity and curation rather than another broad feature-testing cycle.
 
 ### Curation rules
 
 - Preserve existing IDs unless a real identity problem requires a change.
 - Do not add the same canonical destination more than once across runtime datasets.
-- Treat URL variants as possible duplicates, not automatic duplicates; inspect destination purpose first.
-- Keep distinct resources when they provide materially different user value (for example a main site versus a dedicated search/tool/app).
-- Do not claim `official` or `verified` without a defensible source basis.
 - Prefer high-value, discoverable resources over catalogue growth for its own sake.
+- Do not claim `official` or `verified` without a defensible source basis.
 - Work in small documented batches and verify after each meaningful batch.
 
 ## Roadmap / remaining work
 
-### Resource integrity and curation — CURRENT
-
-1. ~~Reconcile the current runtime resource count from the live build/data loader.~~ (loaders unified 2026-08-21)
-2. ~~Check cross-dataset duplicate IDs and normalized canonical URLs.~~ (known ID duplicates removed 2026-08-21)
-3. Review remaining high-confidence near-duplicates manually rather than deleting by hostname alone.
-4. Review candidate additions (including Alhassanain and structured learning resources) only after overlap and source-quality checks.
-5. Align quality.json IDs with resource IDs where mismatches exist.
-6. Run targeted live verification after each meaningful batch; defer the full regression suite until the resource curation pass is substantially complete.
-
-### Recommendation intelligence
-
-Continue incremental, data-driven improvements rather than replacing the current contextual ranking.
-
-### Ulema + parents + community network
-
-Longer-term: richer recommendation sets, parent usefulness feedback, curated collections, community submissions, quality/verification workflow, and analytics on what users actually find useful.
-
-### Learning-path expansion
-
-Do not expand the path library merely for quantity. Add paths only where they provide a clear purposeful journey using existing high-quality resources.
+1. Live verification after deploy (homepage count, newest resources, learning paths page)
+2. Optional quality.json enrichment for batch-03 IDs after deeper review
+3. Urdu / South Asia high-value additions only
+4. Near-duplicate destination review (distinct value only)
+5. Longer-term: community usefulness feedback, richer ulema/parent network tools
 
 ## What NOT to do
 
-- Do not keep adding documentation instead of user-facing implementation.
-- Do not manually tag hundreds of resources by default.
-- Do not duplicate resource databases unnecessarily.
-- Do not make the platform a generic everything-Islamic dump.
-- Do not rank only by popularity; consider relevance, quality and suitability.
-- Do not make AI the religious authority.
-- Do not keep polishing videos while higher-value roadmap work remains.
-- Do not invent resource taxonomy entries without real supporting data.
+- Do not become a generic everything-Islamic dump
+- Do not rank only by popularity
+- Do not make AI the religious authority
+- Do not expand learning paths only for quantity
 
 ## Immediate next task
 
-**Targeted live verification of the 2026-08-21 integrity commit**, then continue near-duplicate review and quality.json ID alignment. Add only confirmed high-value resources in small batches. Do not repeat completed feature QA.
+**Live verify batch-03 + new learning paths on GitHub Pages**, then continue only high-value Urdu/South Asia or quality enrichment work.
 
 ## Continuation rule
 
-When continuing in a new conversation, read this file and the latest `data/resource-audit-*.md`, inspect the current repository state, and continue from the Immediate next task rather than asking the user to repeat project history.
+When continuing in a new conversation, read this file and the latest `data/resource-audit-*.md`, inspect the repository state, and continue from the Immediate next task.

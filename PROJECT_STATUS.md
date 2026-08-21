@@ -65,17 +65,22 @@ Feedback is used conservatively as a secondary signal: minimum 3 observations pe
 
 ## Current resource data
 
-Runtime resource data is distributed across:
+Runtime resource data is distributed across (same order in `js/app.js` and `js/search.js`):
 
 - `data/resources.json`
 - `data/additional-resources.json`
 - `data/research-resources.json`
 - `data/urdu-south-asia-resources.json`
 - `data/expansion-batch-01.json`
-- `data/quality.json`
+- `data/expansion-batch-02.json`
+- `data/quality.json` (overlay)
 - `data/intent-aliases.json`
 
-Recent cleanup commits removed confirmed duplicate/cross-dataset records involving `al-islam-quran`, `sistani-qa`, broken Thaqalayn expansion paths, ShiaKids records, HREC records and duplicate app/cross-dataset records. See `data/resource-audit-2026-08-13.md` for the controlled curation baseline.
+### 2026-08-21 integrity update
+
+- Removed cross-dataset duplicate IDs `rafed`, `al-shia`, `ziaraat`, `shia-maktab` from `expansion-batch-01.json` (canonical copies remain in `additional-resources.json`).
+- Unified homepage and directory data loaders so both include `expansion-batch-02.json`.
+- See `data/resource-audit-2026-08-21.md`.
 
 Do not create a duplicate resource database without a strong reason. Prefer a normalized runtime model.
 
@@ -105,11 +110,11 @@ Current work is resource integrity and curation rather than another broad featur
 
 ### Resource integrity and curation — CURRENT
 
-1. Reconcile the current runtime resource count from the live build/data loader.
-2. Check cross-dataset duplicate IDs and normalized canonical URLs.
+1. ~~Reconcile the current runtime resource count from the live build/data loader.~~ (loaders unified 2026-08-21)
+2. ~~Check cross-dataset duplicate IDs and normalized canonical URLs.~~ (known ID duplicates removed 2026-08-21)
 3. Review remaining high-confidence near-duplicates manually rather than deleting by hostname alone.
-4. Review candidate additions (including duas.org, al-shia.org, Rafed, Ziaraat, Alhassanain and Shia Maktab) only after overlap and source-quality checks.
-5. Add new resources in small documented batches.
+4. Review candidate additions (including Alhassanain and structured learning resources) only after overlap and source-quality checks.
+5. Align quality.json IDs with resource IDs where mismatches exist.
 6. Run targeted live verification after each meaningful batch; defer the full regression suite until the resource curation pass is substantially complete.
 
 ### Recommendation intelligence
@@ -137,8 +142,8 @@ Do not expand the path library merely for quantity. Add paths only where they pr
 
 ## Immediate next task
 
-**Continue the resource integrity audit from the documented 2026-08-13 baseline.** Reconcile the live/runtime count and normalized duplicate set first, then implement only confirmed high-value cleanup or additions in controlled batches. Do not repeat completed feature QA.
+**Targeted live verification of the 2026-08-21 integrity commit**, then continue near-duplicate review and quality.json ID alignment. Add only confirmed high-value resources in small batches. Do not repeat completed feature QA.
 
 ## Continuation rule
 
-When continuing in a new conversation, read this file and `data/resource-audit-2026-08-13.md`, inspect the current repository state, and continue from the Immediate next task rather than asking the user to repeat project history.
+When continuing in a new conversation, read this file and the latest `data/resource-audit-*.md`, inspect the current repository state, and continue from the Immediate next task rather than asking the user to repeat project history.

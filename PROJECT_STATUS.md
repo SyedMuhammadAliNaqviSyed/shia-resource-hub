@@ -2,30 +2,20 @@
 
 ## Status label
 
-**v1.3 public directory** (2026-08-21)
+**v1.3+ (solo QA pass)** — 2026-08-21
 
 ## Product principle
 
 **Need → relevant resources → practical next step → learning path**
 
-## Recent completed work
+## Latest
 
-- Content integrity + Urdu/South Asia expansion
-- UX: filters, load more, share/copy, empty states
-- SEO: robots, sitemap, OG tags
-- **v1.3:** 404 page, mobile menus on videos/parent/suggest, parent form styling, learning-paths full data paths
+Solo outsider QA completed (no external users available). Fixed age-guidance accuracy, Urdu search UX, and filter banner clarity. See `data/qa-review-2026-08-21.md`.
 
-## Recommended pause point
+## Recommended next
 
-Core product is shippable. Next value comes from **real user feedback**, not more bulk coding.
+1. Use the live site yourself for a week
+2. Note real friction points while using it
+3. Only then add features or resources
 
-Optional later:
-- Search Console sitemap submit
-- Feedback-driven resource additions
-- Dark mode / language toggle only if users ask
-
-## What NOT to do
-
-- Bulk link dumping
-- Unsupported official/verified claims
-- Treating AI as religious authority
+Bulk feature work can pause here without harming the product.

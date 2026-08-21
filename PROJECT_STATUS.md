@@ -2,7 +2,7 @@
 
 ## Status label
 
-**v1.2 public directory** (2026-08-21)
+**v1.3 public directory** (2026-08-21)
 
 ## Product principle
 
@@ -10,25 +10,22 @@
 
 ## Recent completed work
 
-- Integrity + unified loaders
-- Batch-03 + Urdu/South Asia expansion
-- Learning paths + collections
-- UX: filters, load more, empty states, share/copy on detail pages
-- SEO: robots.txt, sitemap.xml, OG + canonical on homepage, favicon
-- Needs page: Urdu card + nav consistency
+- Content integrity + Urdu/South Asia expansion
+- UX: filters, load more, share/copy, empty states
+- SEO: robots, sitemap, OG tags
+- **v1.3:** 404 page, mobile menus on videos/parent/suggest, parent form styling, learning-paths full data paths
 
-## Immediate next (optional)
+## Recommended pause point
 
-1. Share site with real users and collect feedback
-2. Add resources only when a clear gap appears
-3. Optional: Google Search Console sitemap submit
+Core product is shippable. Next value comes from **real user feedback**, not more bulk coding.
+
+Optional later:
+- Search Console sitemap submit
+- Feedback-driven resource additions
+- Dark mode / language toggle only if users ask
 
 ## What NOT to do
 
 - Bulk link dumping
 - Unsupported official/verified claims
 - Treating AI as religious authority
-
-## Continuation rule
-
-Read this file before major changes. Prefer quality over quantity.
